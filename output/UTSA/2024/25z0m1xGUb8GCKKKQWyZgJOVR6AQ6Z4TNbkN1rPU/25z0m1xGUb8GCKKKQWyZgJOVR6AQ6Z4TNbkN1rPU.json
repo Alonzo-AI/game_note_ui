@@ -1,0 +1,1962 @@
+[
+  [
+    {
+      "index": 0,
+      "label": "image",
+      "bbox_2d": [
+        60,
+        44,
+        432,
+        180
+      ],
+      "polygon": [
+        [
+          60,
+          44
+        ],
+        [
+          60,
+          179
+        ],
+        [
+          431,
+          179
+        ],
+        [
+          431,
+          44
+        ]
+      ],
+      "content": null,
+      "native_label": "image"
+    },
+    {
+      "index": 1,
+      "label": "text",
+      "bbox_2d": [
+        492,
+        45,
+        885,
+        177
+      ],
+      "polygon": [
+        [
+          497,
+          45
+        ],
+        [
+          492,
+          177
+        ],
+        [
+          566,
+          177
+        ],
+        [
+          611,
+          177
+        ],
+        [
+          621,
+          177
+        ],
+        [
+          884,
+          177
+        ],
+        [
+          884,
+          45
+        ]
+      ],
+      "content": "# 2024 UTSA Roadrunners Football UTSA vs. Temple Friday, Nov. 22 Alamodome·San Antonio, Texas UTSA Postgame Notes",
+      "native_label": "doc_title"
+    },
+    {
+      "index": 2,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        191,
+        258,
+        204
+      ],
+      "polygon": [
+        [
+          55,
+          191
+        ],
+        [
+          55,
+          204
+        ],
+        [
+          257,
+          204
+        ],
+        [
+          257,
+          191
+        ]
+      ],
+      "content": "## TEAM RECORDS AND SERIES NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 3,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        203,
+        928,
+        228
+      ],
+      "polygon": [
+        [
+          82,
+          203
+        ],
+        [
+          82,
+          228
+        ],
+        [
+          448,
+          228
+        ],
+        [
+          593,
+          228
+        ],
+        [
+          928,
+          228
+        ],
+        [
+          928,
+          203
+        ]
+      ],
+      "content": "- UTSA improved to 6-5, including a 4-3 mark in American Athletic Conference play, earning bowl eligibility in the process for the fifth time in five years under Coach Traylor. Temple fell to 3-8 on the year and is now 2-5 record in league action.",
+      "native_label": "text"
+    },
+    {
+      "index": 4,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        228,
+        414,
+        240
+      ],
+      "polygon": [
+        [
+          82,
+          228
+        ],
+        [
+          82,
+          239
+        ],
+        [
+          413,
+          239
+        ],
+        [
+          413,
+          228
+        ]
+      ],
+      "content": "- This marked the second meeting between UTSA and Temple.",
+      "native_label": "text"
+    },
+    {
+      "index": 5,
+      "label": "text",
+      "bbox_2d": [
+        92,
+        238,
+        317,
+        250
+      ],
+      "polygon": [
+        [
+          144,
+          238
+        ],
+        [
+          144,
+          250
+        ],
+        [
+          316,
+          250
+        ],
+        [
+          316,
+          238
+        ]
+      ],
+      "content": "- UTSA leads the series, 2-0.",
+      "native_label": "text"
+    },
+    {
+      "index": 6,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        249,
+        546,
+        262
+      ],
+      "polygon": [
+        [
+          82,
+          249
+        ],
+        [
+          82,
+          261
+        ],
+        [
+          545,
+          261
+        ],
+        [
+          545,
+          249
+        ]
+      ],
+      "content": "- UTSA has won 10 straight games in the Alamodome and 17 of the last 18 home contests.",
+      "native_label": "text"
+    },
+    {
+      "index": 7,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        262,
+        525,
+        274
+      ],
+      "polygon": [
+        [
+          142,
+          266
+        ],
+        [
+          147,
+          274
+        ],
+        [
+          524,
+          274
+        ],
+        [
+          524,
+          262
+        ],
+        [
+          480,
+          262
+        ],
+        [
+          450,
+          262
+        ],
+        [
+          411,
+          262
+        ],
+        [
+          400,
+          262
+        ],
+        [
+          172,
+          262
+        ]
+      ],
+      "content": "UTSA has tied the school record 10-game winning streak set in 2020-21.",
+      "native_label": "text"
+    },
+    {
+      "index": 8,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        273,
+        495,
+        285
+      ],
+      "polygon": [
+        [
+          141,
+          280
+        ],
+        [
+          141,
+          285
+        ],
+        [
+          494,
+          285
+        ],
+        [
+          494,
+          273
+        ],
+        [
+          146,
+          273
+        ]
+      ],
+      "content": "The Roadrunners are now 55-30 (.647) all-time in the Alamodome.",
+      "native_label": "text"
+    },
+    {
+      "index": 9,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        285,
+        299,
+        297
+      ],
+      "polygon": [
+        [
+          83,
+          285
+        ],
+        [
+          83,
+          296
+        ],
+        [
+          298,
+          296
+        ],
+        [
+          298,
+          285
+        ]
+      ],
+      "content": "- UTSA is 9-4 all-time in Friday games.",
+      "native_label": "text"
+    },
+    {
+      "index": 10,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        296,
+        434,
+        309
+      ],
+      "polygon": [
+        [
+          84,
+          300
+        ],
+        [
+          84,
+          308
+        ],
+        [
+          433,
+          308
+        ],
+        [
+          433,
+          296
+        ],
+        [
+          319,
+          296
+        ],
+        [
+          298,
+          296
+        ],
+        [
+          139,
+          296
+        ],
+        [
+          109,
+          296
+        ],
+        [
+          103,
+          296
+        ],
+        [
+          99,
+          296
+        ]
+      ],
+      "content": "- The Roadrunners are 11-7 all-time in games played on weekdays.",
+      "native_label": "text"
+    },
+    {
+      "index": 11,
+      "label": "text",
+      "bbox_2d": [
+        87,
+        308,
+        296,
+        320
+      ],
+      "polygon": [
+        [
+          87,
+          308
+        ],
+        [
+          87,
+          319
+        ],
+        [
+          295,
+          319
+        ],
+        [
+          295,
+          308
+        ]
+      ],
+      "content": "- In the Jeff Traylor era, UTSA is now:",
+      "native_label": "text"
+    },
+    {
+      "index": 12,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        320,
+        274,
+        331
+      ],
+      "polygon": [
+        [
+          142,
+          320
+        ],
+        [
+          142,
+          331
+        ],
+        [
+          274,
+          331
+        ],
+        [
+          274,
+          320
+        ]
+      ],
+      "content": "○ 45-19 (.703) overall.",
+      "native_label": "text"
+    },
+    {
+      "index": 13,
+      "label": "text",
+      "bbox_2d": [
+        144,
+        330,
+        623,
+        343
+      ],
+      "polygon": [
+        [
+          144,
+          330
+        ],
+        [
+          144,
+          343
+        ],
+        [
+          622,
+          343
+        ],
+        [
+          622,
+          330
+        ],
+        [
+          229,
+          330
+        ],
+        [
+          214,
+          330
+        ],
+        [
+          158,
+          330
+        ]
+      ],
+      "content": "- Taylor's 45 wins represent the most of any active FBS head coach hired in 2020.",
+      "native_label": "text"
+    },
+    {
+      "index": 14,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        354,
+        410,
+        366
+      ],
+      "polygon": [
+        [
+          142,
+          354
+        ],
+        [
+          142,
+          365
+        ],
+        [
+          410,
+          365
+        ],
+        [
+          410,
+          354
+        ]
+      ],
+      "content": "31-7 (.816) in regular-season conference games.",
+      "native_label": "text"
+    },
+    {
+      "index": 15,
+      "label": "text",
+      "bbox_2d": [
+        143,
+        344,
+        277,
+        354
+      ],
+      "polygon": [
+        [
+          143,
+          344
+        ],
+        [
+          143,
+          354
+        ],
+        [
+          276,
+          354
+        ],
+        [
+          276,
+          344
+        ]
+      ],
+      "content": "29-3 (.906) at home.",
+      "native_label": "text"
+    },
+    {
+      "index": 16,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        378,
+        484,
+        390
+      ],
+      "polygon": [
+        [
+          142,
+          378
+        ],
+        [
+          142,
+          390
+        ],
+        [
+          483,
+          390
+        ],
+        [
+          483,
+          378
+        ]
+      ],
+      "content": "16-2 (.889) overall and 11-0 at home in the month of November.",
+      "native_label": "text"
+    },
+    {
+      "index": 17,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        390,
+        307,
+        401
+      ],
+      "polygon": [
+        [
+          142,
+          390
+        ],
+        [
+          142,
+          401
+        ],
+        [
+          307,
+          401
+        ],
+        [
+          307,
+          390
+        ]
+      ],
+      "content": "8-3 (.727) in Friday games.",
+      "native_label": "text"
+    },
+    {
+      "index": 18,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        411,
+        132,
+        424
+      ],
+      "polygon": [
+        [
+          55,
+          411
+        ],
+        [
+          55,
+          423
+        ],
+        [
+          132,
+          423
+        ],
+        [
+          132,
+          411
+        ]
+      ],
+      "content": "## TEAM NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 19,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        424,
+        433,
+        436
+      ],
+      "polygon": [
+        [
+          82,
+          424
+        ],
+        [
+          87,
+          435
+        ],
+        [
+          432,
+          435
+        ],
+        [
+          432,
+          424
+        ]
+      ],
+      "content": "- The Roadrunners set a new school record with 16 tackles for loss.",
+      "native_label": "text"
+    },
+    {
+      "index": 20,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        436,
+        457,
+        447
+      ],
+      "polygon": [
+        [
+          83,
+          436
+        ],
+        [
+          83,
+          446
+        ],
+        [
+          456,
+          446
+        ],
+        [
+          456,
+          436
+        ]
+      ],
+      "content": "- UTSA extended its streak of consecutive games with a takeaway to 21.",
+      "native_label": "text"
+    },
+    {
+      "index": 21,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        447,
+        652,
+        460
+      ],
+      "polygon": [
+        [
+          84,
+          447
+        ],
+        [
+          84,
+          459
+        ],
+        [
+          651,
+          459
+        ],
+        [
+          651,
+          451
+        ],
+        [
+          609,
+          452
+        ],
+        [
+          596,
+          447
+        ],
+        [
+          421,
+          447
+        ],
+        [
+          390,
+          447
+        ],
+        [
+          371,
+          447
+        ],
+        [
+          365,
+          447
+        ],
+        [
+          104,
+          447
+        ]
+      ],
+      "content": "- The Roadrunners now have 19 takeaways this season, nine fumble recoveries and 10 interceptions.",
+      "native_label": "text"
+    },
+    {
+      "index": 22,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        459,
+        522,
+        471
+      ],
+      "polygon": [
+        [
+          82,
+          459
+        ],
+        [
+          82,
+          470
+        ],
+        [
+          521,
+          470
+        ],
+        [
+          521,
+          459
+        ]
+      ],
+      "content": "- The Roadrunners recorded six sacks on the evening, one shy of the program record.",
+      "native_label": "text"
+    },
+    {
+      "index": 23,
+      "label": "text",
+      "bbox_2d": [
+        87,
+        471,
+        437,
+        482
+      ],
+      "polygon": [
+        [
+          122,
+          479
+        ],
+        [
+          122,
+          482
+        ],
+        [
+          436,
+          482
+        ],
+        [
+          436,
+          471
+        ],
+        [
+          147,
+          471
+        ]
+      ],
+      "content": "- UTSA now has registered a sack in 21 straight games.",
+      "native_label": "text"
+    },
+    {
+      "index": 24,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        482,
+        500,
+        493
+      ],
+      "polygon": [
+        [
+          82,
+          488
+        ],
+        [
+          82,
+          493
+        ],
+        [
+          500,
+          493
+        ],
+        [
+          500,
+          482
+        ],
+        [
+          87,
+          482
+        ]
+      ],
+      "content": "- UTSA has held opponents to 100 or fewer rushing yards eight times this season.",
+      "native_label": "text"
+    },
+    {
+      "index": 25,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        494,
+        341,
+        505
+      ],
+      "polygon": [
+        [
+          83,
+          494
+        ],
+        [
+          83,
+          505
+        ],
+        [
+          341,
+          505
+        ],
+        [
+          341,
+          494
+        ]
+      ],
+      "content": "- UTSA scored 51 points for a new season-high",
+      "native_label": "text"
+    },
+    {
+      "index": 26,
+      "label": "text",
+      "bbox_2d": [
+        148,
+        517,
+        628,
+        528
+      ],
+      "polygon": [
+        [
+          148,
+          528
+        ],
+        [
+          622,
+          528
+        ],
+        [
+          627,
+          517
+        ],
+        [
+          294,
+          517
+        ],
+        [
+          288,
+          517
+        ],
+        [
+          258,
+          517
+        ],
+        [
+          204,
+          521
+        ],
+        [
+          194,
+          517
+        ],
+        [
+          148,
+          521
+        ]
+      ],
+      "content": "It was the first 50-point game since UTSA posted 51 against Louisiana Tech on Nov. 12, 2022",
+      "native_label": "text"
+    },
+    {
+      "index": 27,
+      "label": "text",
+      "bbox_2d": [
+        76,
+        528,
+        529,
+        540
+      ],
+      "polygon": [
+        [
+          86,
+          528
+        ],
+        [
+          86,
+          540
+        ],
+        [
+          524,
+          540
+        ],
+        [
+          528,
+          534
+        ],
+        [
+          528,
+          528
+        ]
+      ],
+      "content": "- UTSA recorded 529 yards of total offense,309 on the ground and 220 through the air.",
+      "native_label": "text"
+    },
+    {
+      "index": 28,
+      "label": "text",
+      "bbox_2d": [
+        138,
+        540,
+        773,
+        551
+      ],
+      "polygon": [
+        [
+          143,
+          540
+        ],
+        [
+          143,
+          551
+        ],
+        [
+          772,
+          551
+        ],
+        [
+          772,
+          540
+        ]
+      ],
+      "content": "The Roadrunners have now recorded over 300 rushing yards in back-to-back games, and 309 represents a new season high.",
+      "native_label": "text"
+    },
+    {
+      "index": 29,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        552,
+        833,
+        564
+      ],
+      "polygon": [
+        [
+          141,
+          556
+        ],
+        [
+          141,
+          563
+        ],
+        [
+          832,
+          563
+        ],
+        [
+          832,
+          556
+        ],
+        [
+          768,
+          552
+        ]
+      ],
+      "content": "This marks the first time in program history with back-to-back 300-yard rushing games and just the third time with two in the same season.",
+      "native_label": "text"
+    },
+    {
+      "index": 30,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        564,
+        549,
+        576
+      ],
+      "polygon": [
+        [
+          81,
+          564
+        ],
+        [
+          81,
+          575
+        ],
+        [
+          548,
+          575
+        ],
+        [
+          548,
+          564
+        ]
+      ],
+      "content": "- The Roadrunners logged three of the team's four longest plays of the season in this game.",
+      "native_label": "text"
+    },
+    {
+      "index": 31,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        576,
+        582,
+        587
+      ],
+      "polygon": [
+        [
+          81,
+          576
+        ],
+        [
+          87,
+          587
+        ],
+        [
+          581,
+          587
+        ],
+        [
+          581,
+          576
+        ]
+      ],
+      "content": "- UTSA gained at least 500 yards of offense for the second straight game and fourth time this year.",
+      "native_label": "text"
+    },
+    {
+      "index": 32,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        596,
+        163,
+        609
+      ],
+      "polygon": [
+        [
+          55,
+          596
+        ],
+        [
+          55,
+          608
+        ],
+        [
+          162,
+          608
+        ],
+        [
+          162,
+          596
+        ]
+      ],
+      "content": "## INDIVIDUAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 33,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        610,
+        548,
+        621
+      ],
+      "polygon": [
+        [
+          84,
+          610
+        ],
+        [
+          84,
+          621
+        ],
+        [
+          548,
+          621
+        ],
+        [
+          548,
+          610
+        ]
+      ],
+      "content": "- Senior OLB Jimmori Robinson posted seven tackles, including 5.5 for loss and four sacks.",
+      "native_label": "text"
+    },
+    {
+      "index": 34,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        621,
+        682,
+        633
+      ],
+      "polygon": [
+        [
+          142,
+          621
+        ],
+        [
+          147,
+          633
+        ],
+        [
+          681,
+          633
+        ],
+        [
+          681,
+          621
+        ]
+      ],
+      "content": "Robinson broke the single-game TFLs record of 4.5 set by Robert Singletary against FIU on Oct 10, 2014.",
+      "native_label": "text"
+    },
+    {
+      "index": 35,
+      "label": "text",
+      "bbox_2d": [
+        92,
+        631,
+        612,
+        645
+      ],
+      "polygon": [
+        [
+          137,
+          644
+        ],
+        [
+          611,
+          644
+        ],
+        [
+          611,
+          635
+        ],
+        [
+          179,
+          636
+        ],
+        [
+          142,
+          635
+        ]
+      ],
+      "content": "He tied the single-game sacks standard set by Marlon Smith vs. McMurry on Sept. 10, 2011",
+      "native_label": "text"
+    },
+    {
+      "index": 36,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        645,
+        528,
+        657
+      ],
+      "polygon": [
+        [
+          84,
+          645
+        ],
+        [
+          84,
+          656
+        ],
+        [
+          527,
+          656
+        ],
+        [
+          527,
+          645
+        ]
+      ],
+      "content": "- Junior CB Zah Frazier had two interceptions, a pass breakup, a hurry and two tackles.",
+      "native_label": "text"
+    },
+    {
+      "index": 37,
+      "label": "text",
+      "bbox_2d": [
+        143,
+        656,
+        771,
+        668
+      ],
+      "polygon": [
+        [
+          143,
+          660
+        ],
+        [
+          143,
+          668
+        ],
+        [
+          771,
+          668
+        ],
+        [
+          771,
+          656
+        ]
+      ],
+      "content": "Frazier now has a school-record six interceptions this season, eclipsing Clifford Chattman's previous mark of five set in 2022.",
+      "native_label": "text"
+    },
+    {
+      "index": 38,
+      "label": "text",
+      "bbox_2d": [
+        144,
+        667,
+        542,
+        679
+      ],
+      "polygon": [
+        [
+          144,
+          667
+        ],
+        [
+          144,
+          679
+        ],
+        [
+          541,
+          679
+        ],
+        [
+          541,
+          667
+        ]
+      ],
+      "content": "This is his second straight and third overall game this season with two INTs.",
+      "native_label": "text"
+    },
+    {
+      "index": 39,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        679,
+        515,
+        691
+      ],
+      "polygon": [
+        [
+          87,
+          679
+        ],
+        [
+          87,
+          690
+        ],
+        [
+          515,
+          690
+        ],
+        [
+          515,
+          679
+        ]
+      ],
+      "content": "- Senior ILB Martavius French tied Jamal Ligon for the team lead with seven tackles.",
+      "native_label": "text"
+    },
+    {
+      "index": 40,
+      "label": "text",
+      "bbox_2d": [
+        85,
+        690,
+        565,
+        703
+      ],
+      "polygon": [
+        [
+          85,
+          699
+        ],
+        [
+          85,
+          702
+        ],
+        [
+          324,
+          702
+        ],
+        [
+          365,
+          702
+        ],
+        [
+          564,
+          702
+        ],
+        [
+          564,
+          690
+        ],
+        [
+          135,
+          690
+        ]
+      ],
+      "content": "This marks the seventh time this season that French has paced the Roadrunners.",
+      "native_label": "text"
+    },
+    {
+      "index": 41,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        702,
+        440,
+        715
+      ],
+      "polygon": [
+        [
+          114,
+          711
+        ],
+        [
+          114,
+          715
+        ],
+        [
+          440,
+          715
+        ],
+        [
+          440,
+          702
+        ],
+        [
+          164,
+          702
+        ],
+        [
+          128,
+          706
+        ]
+      ],
+      "content": "Senior S Elliott Davison racked up five tackles and a pass breakup.",
+      "native_label": "text"
+    },
+    {
+      "index": 42,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        714,
+        531,
+        726
+      ],
+      "polygon": [
+        [
+          94,
+          714
+        ],
+        [
+          94,
+          725
+        ],
+        [
+          530,
+          725
+        ],
+        [
+          530,
+          714
+        ],
+        [
+          104,
+          714
+        ]
+      ],
+      "content": "Senior DL Asyrus Simon and redshirt sophomore Camron Cooper each posted a sack.",
+      "native_label": "text"
+    },
+    {
+      "index": 43,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        726,
+        501,
+        738
+      ],
+      "polygon": [
+        [
+          84,
+          730
+        ],
+        [
+          84,
+          737
+        ],
+        [
+          108,
+          737
+        ],
+        [
+          114,
+          737
+        ],
+        [
+          140,
+          737
+        ],
+        [
+          149,
+          737
+        ],
+        [
+          154,
+          737
+        ],
+        [
+          330,
+          737
+        ],
+        [
+          345,
+          737
+        ],
+        [
+          360,
+          737
+        ],
+        [
+          501,
+          737
+        ],
+        [
+          501,
+          726
+        ],
+        [
+          104,
+          726
+        ]
+      ],
+      "content": "- Redshirt sophomore $B Bryce Grays posted the first forced fumble of his career.",
+      "native_label": "text"
+    },
+    {
+      "index": 44,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        737,
+        651,
+        749
+      ],
+      "polygon": [
+        [
+          82,
+          741
+        ],
+        [
+          82,
+          748
+        ],
+        [
+          650,
+          748
+        ],
+        [
+          650,
+          741
+        ],
+        [
+          605,
+          737
+        ]
+      ],
+      "content": "- Senior RB Robert Henry Jr. recorded his second straight 100-yard rushing game with 178 yards and two scores.",
+      "native_label": "text"
+    },
+    {
+      "index": 45,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        749,
+        616,
+        762
+      ],
+      "polygon": [
+        [
+          142,
+          749
+        ],
+        [
+          147,
+          761
+        ],
+        [
+          615,
+          761
+        ],
+        [
+          615,
+          749
+        ]
+      ],
+      "content": "Henry's rushing yardage total now ranks seventh on the school's single-game rushing chart.",
+      "native_label": "text"
+    },
+    {
+      "index": 46,
+      "label": "text",
+      "bbox_2d": [
+        96,
+        760,
+        934,
+        777
+      ],
+      "polygon": [
+        [
+          96,
+          769
+        ],
+        [
+          101,
+          777
+        ],
+        [
+          899,
+          777
+        ],
+        [
+          934,
+          773
+        ],
+        [
+          934,
+          760
+        ],
+        [
+          161,
+          760
+        ]
+      ],
+      "content": "His 88-yard run in the second quarter is the second-longest rush in school history behind Jarveon Williams' 92-yard dash against Southern Miss on Oct. 8, 2016",
+      "native_label": "text"
+    },
+    {
+      "index": 47,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        782,
+        915,
+        805
+      ],
+      "polygon": [
+        [
+          142,
+          782
+        ],
+        [
+          142,
+          805
+        ],
+        [
+          915,
+          799
+        ],
+        [
+          915,
+          782
+        ]
+      ],
+      "content": "His 75-yard TD dash in the second quarter is the longest rush by a UTSA quarterback in school history,breaking Frank Harris' 71-yard record against North Texas in 2020.",
+      "native_label": "text"
+    },
+    {
+      "index": 48,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        806,
+        585,
+        818
+      ],
+      "polygon": [
+        [
+          83,
+          806
+        ],
+        [
+          83,
+          817
+        ],
+        [
+          584,
+          817
+        ],
+        [
+          584,
+          806
+        ]
+      ],
+      "content": "- Senior WR/KR Chris Carpenter returned a kickoff 97 yards for a touchdown in the second quarter.",
+      "native_label": "text"
+    },
+    {
+      "index": 49,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        818,
+        890,
+        830
+      ],
+      "polygon": [
+        [
+          84,
+          818
+        ],
+        [
+          84,
+          830
+        ],
+        [
+          890,
+          830
+        ],
+        [
+          890,
+          818
+        ]
+      ],
+      "content": "- Carpenter now has the only two kickoff return TDs in school history, as he also had a 97-yard return for a score vs. Texas Southern on Sept.24, 2022.",
+      "native_label": "text"
+    },
+    {
+      "index": 50,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        830,
+        551,
+        842
+      ],
+      "polygon": [
+        [
+          84,
+          830
+        ],
+        [
+          84,
+          842
+        ],
+        [
+          550,
+          842
+        ],
+        [
+          550,
+          830
+        ]
+      ],
+      "content": "- Sophomore WR David Amador II hauled in seven receptions on seven targets for 63 yards",
+      "native_label": "text"
+    },
+    {
+      "index": 51,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        841,
+        460,
+        854
+      ],
+      "polygon": [
+        [
+          83,
+          841
+        ],
+        [
+          83,
+          853
+        ],
+        [
+          460,
+          853
+        ],
+        [
+          460,
+          845
+        ],
+        [
+          445,
+          841
+        ],
+        [
+          440,
+          841
+        ],
+        [
+          420,
+          841
+        ],
+        [
+          405,
+          841
+        ],
+        [
+          400,
+          841
+        ],
+        [
+          325,
+          841
+        ],
+        [
+          299,
+          841
+        ]
+      ],
+      "content": "- Senior WR Willie McCoy caught three passes for 48 yards and a score.",
+      "native_label": "text"
+    },
+    {
+      "index": 52,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        863,
+        168,
+        875
+      ],
+      "polygon": [
+        [
+          55,
+          863
+        ],
+        [
+          55,
+          875
+        ],
+        [
+          167,
+          875
+        ],
+        [
+          167,
+          863
+        ]
+      ],
+      "content": "## ADDITIONAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 53,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        876,
+        650,
+        888
+      ],
+      "polygon": [
+        [
+          84,
+          876
+        ],
+        [
+          84,
+          887
+        ],
+        [
+          650,
+          887
+        ],
+        [
+          650,
+          876
+        ]
+      ],
+      "content": "- UTSA's captains today were senior WR Chris Carpenter, senior RB Robert Henry Jr. and senior C CJ James Jr.",
+      "native_label": "text"
+    },
+    {
+      "index": 54,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        888,
+        495,
+        899
+      ],
+      "polygon": [
+        [
+          84,
+          888
+        ],
+        [
+          84,
+          899
+        ],
+        [
+          494,
+          899
+        ],
+        [
+          494,
+          888
+        ]
+      ],
+      "content": "- UTSA improved to 4-0 when wearing black uniforms, including 3-0 this season.",
+      "native_label": "text"
+    },
+    {
+      "index": 55,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        899,
+        275,
+        910
+      ],
+      "polygon": [
+        [
+          84,
+          899
+        ],
+        [
+          84,
+          910
+        ],
+        [
+          274,
+          910
+        ],
+        [
+          274,
+          899
+        ]
+      ],
+      "content": "- Today's attendance was 20,121.",
+      "native_label": "text"
+    },
+    {
+      "index": 56,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        910,
+        705,
+        923
+      ],
+      "polygon": [
+        [
+          141,
+          910
+        ],
+        [
+          147,
+          922
+        ],
+        [
+          705,
+          922
+        ],
+        [
+          705,
+          910
+        ]
+      ],
+      "content": "UTSA now has drawn 2,114,786 fans for 85 home games in its 14-year history, an average of 24,880 per game",
+      "native_label": "text"
+    }
+  ]
+]

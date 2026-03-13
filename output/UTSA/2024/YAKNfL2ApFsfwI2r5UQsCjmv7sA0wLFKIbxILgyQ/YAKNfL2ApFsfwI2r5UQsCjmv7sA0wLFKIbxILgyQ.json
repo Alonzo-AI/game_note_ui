@@ -1,0 +1,1164 @@
+[
+  [
+    {
+      "index": 0,
+      "label": "image",
+      "bbox_2d": [
+        60,
+        44,
+        431,
+        179
+      ],
+      "polygon": [
+        [
+          60,
+          44
+        ],
+        [
+          60,
+          178
+        ],
+        [
+          431,
+          178
+        ],
+        [
+          431,
+          44
+        ]
+      ],
+      "content": null,
+      "native_label": "image"
+    },
+    {
+      "index": 1,
+      "label": "text",
+      "bbox_2d": [
+        54,
+        191,
+        305,
+        205
+      ],
+      "polygon": [
+        [
+          54,
+          191
+        ],
+        [
+          54,
+          205
+        ],
+        [
+          305,
+          205
+        ],
+        [
+          305,
+          191
+        ]
+      ],
+      "content": "## TEAM RECORDS AND SERIES NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 2,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        207,
+        485,
+        221
+      ],
+      "polygon": [
+        [
+          83,
+          207
+        ],
+        [
+          83,
+          220
+        ],
+        [
+          485,
+          220
+        ],
+        [
+          485,
+          207
+        ],
+        [
+          300,
+          207
+        ],
+        [
+          294,
+          207
+        ],
+        [
+          94,
+          207
+        ]
+      ],
+      "content": "- UTSA kicked off its 14th season of football with today's game.",
+      "native_label": "text"
+    },
+    {
+      "index": 3,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        221,
+        516,
+        235
+      ],
+      "polygon": [
+        [
+          83,
+          221
+        ],
+        [
+          83,
+          235
+        ],
+        [
+          515,
+          235
+        ],
+        [
+          515,
+          221
+        ]
+      ],
+      "content": "- This marked the first meeting between UTSA and Kennesaw State.",
+      "native_label": "text"
+    },
+    {
+      "index": 4,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        236,
+        508,
+        250
+      ],
+      "polygon": [
+        [
+          82,
+          236
+        ],
+        [
+          82,
+          240
+        ],
+        [
+          82,
+          245
+        ],
+        [
+          82,
+          249
+        ],
+        [
+          507,
+          249
+        ],
+        [
+          502,
+          236
+        ]
+      ],
+      "content": "- With today's 28-16 win over Kennesaw State, UTSA improved to:",
+      "native_label": "text"
+    },
+    {
+      "index": 5,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        251,
+        456,
+        265
+      ],
+      "polygon": [
+        [
+          147,
+          251
+        ],
+        [
+          147,
+          264
+        ],
+        [
+          455,
+          264
+        ],
+        [
+          455,
+          251
+        ]
+      ],
+      "content": "40-14 under fifth-year head coach Jeff Traylor.",
+      "native_label": "text"
+    },
+    {
+      "index": 6,
+      "label": "text",
+      "bbox_2d": [
+        143,
+        265,
+        490,
+        280
+      ],
+      "polygon": [
+        [
+          143,
+          265
+        ],
+        [
+          143,
+          279
+        ],
+        [
+          490,
+          279
+        ],
+        [
+          490,
+          265
+        ]
+      ],
+      "content": "24-3 (.889) at the Alamodome in the Jeff Traylor era.",
+      "native_label": "text"
+    },
+    {
+      "index": 7,
+      "label": "text",
+      "bbox_2d": [
+        144,
+        280,
+        321,
+        293
+      ],
+      "polygon": [
+        [
+          144,
+          280
+        ],
+        [
+          144,
+          293
+        ],
+        [
+          320,
+          293
+        ],
+        [
+          320,
+          280
+        ]
+      ],
+      "content": "10-4 in season openers",
+      "native_label": "text"
+    },
+    {
+      "index": 8,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        293,
+        495,
+        308
+      ],
+      "polygon": [
+        [
+          142,
+          293
+        ],
+        [
+          142,
+          307
+        ],
+        [
+          495,
+          307
+        ],
+        [
+          495,
+          293
+        ]
+      ],
+      "content": "9-5 in home openers, including 4-1 under Jeff Traylor",
+      "native_label": "text"
+    },
+    {
+      "index": 9,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        308,
+        613,
+        322
+      ],
+      "polygon": [
+        [
+          87,
+          308
+        ],
+        [
+          87,
+          322
+        ],
+        [
+          612,
+          322
+        ],
+        [
+          612,
+          308
+        ]
+      ],
+      "content": "- UTSA earned its 50th all-time win in the Alamodome and now owns a 50-30 record.",
+      "native_label": "text"
+    },
+    {
+      "index": 10,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        323,
+        314,
+        337
+      ],
+      "polygon": [
+        [
+          82,
+          323
+        ],
+        [
+          82,
+          336
+        ],
+        [
+          313,
+          336
+        ],
+        [
+          313,
+          323
+        ]
+      ],
+      "content": "- Today's attendance was 25,911.",
+      "native_label": "text"
+    },
+    {
+      "index": 11,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        337,
+        914,
+        352
+      ],
+      "polygon": [
+        [
+          141,
+          341
+        ],
+        [
+          147,
+          352
+        ],
+        [
+          914,
+          352
+        ],
+        [
+          914,
+          337
+        ]
+      ],
+      "content": "UTSA surpassed two million fans at home games in its history with today's attendance and now stands at 2,014,342 all-time.",
+      "native_label": "text"
+    },
+    {
+      "index": 12,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        365,
+        150,
+        379
+      ],
+      "polygon": [
+        [
+          55,
+          365
+        ],
+        [
+          55,
+          379
+        ],
+        [
+          149,
+          379
+        ],
+        [
+          149,
+          365
+        ]
+      ],
+      "content": "## TEAM NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 13,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        380,
+        574,
+        395
+      ],
+      "polygon": [
+        [
+          87,
+          380
+        ],
+        [
+          87,
+          394
+        ],
+        [
+          573,
+          394
+        ],
+        [
+          573,
+          380
+        ]
+      ],
+      "content": "- UTSA tallied 416 yards of offense,340 through the air and 76 on the ground.",
+      "native_label": "text"
+    },
+    {
+      "index": 14,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        395,
+        928,
+        423
+      ],
+      "polygon": [
+        [
+          83,
+          395
+        ],
+        [
+          83,
+          422
+        ],
+        [
+          928,
+          422
+        ],
+        [
+          928,
+          395
+        ]
+      ],
+      "content": "- The Roadrunners held Kennesaw State to 253 yards of offense, including only 51 rushing, the fewest rushing yards allowed since limited Rice to 47 on Nov. 11, 2023.",
+      "native_label": "text"
+    },
+    {
+      "index": 15,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        424,
+        466,
+        438
+      ],
+      "polygon": [
+        [
+          82,
+          424
+        ],
+        [
+          82,
+          437
+        ],
+        [
+          465,
+          437
+        ],
+        [
+          465,
+          424
+        ]
+      ],
+      "content": "- UTSA registered 10 tackles for loss, including three sacks.",
+      "native_label": "text"
+    },
+    {
+      "index": 16,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        439,
+        533,
+        453
+      ],
+      "polygon": [
+        [
+          141,
+          439
+        ],
+        [
+          141,
+          443
+        ],
+        [
+          141,
+          452
+        ],
+        [
+          532,
+          452
+        ],
+        [
+          532,
+          439
+        ]
+      ],
+      "content": "The 10 TFLs are tied for 10th on UTSA's single-game chart.",
+      "native_label": "text"
+    },
+    {
+      "index": 17,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        453,
+        704,
+        468
+      ],
+      "polygon": [
+        [
+          142,
+          453
+        ],
+        [
+          147,
+          468
+        ],
+        [
+          703,
+          468
+        ],
+        [
+          703,
+          453
+        ]
+      ],
+      "content": "Today was the first double-digit TFL game since 10 versus Rice game on Nov.11,2023.",
+      "native_label": "text"
+    },
+    {
+      "index": 18,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        481,
+        188,
+        495
+      ],
+      "polygon": [
+        [
+          55,
+          481
+        ],
+        [
+          55,
+          495
+        ],
+        [
+          188,
+          495
+        ],
+        [
+          188,
+          481
+        ]
+      ],
+      "content": "## INDIVIDUAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 19,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        497,
+        781,
+        511
+      ],
+      "polygon": [
+        [
+          87,
+          497
+        ],
+        [
+          87,
+          510
+        ],
+        [
+          781,
+          510
+        ],
+        [
+          781,
+          497
+        ],
+        [
+          617,
+          497
+        ],
+        [
+          611,
+          497
+        ]
+      ],
+      "content": "- Sophomore WR Devin McCuin had a career-high 11 receptions for 79 yards and a career-best two touchdowns.",
+      "native_label": "text"
+    },
+    {
+      "index": 20,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        512,
+        622,
+        525
+      ],
+      "polygon": [
+        [
+          147,
+          512
+        ],
+        [
+          147,
+          525
+        ],
+        [
+          617,
+          525
+        ],
+        [
+          617,
+          512
+        ]
+      ],
+      "content": "His 11 receptions are tied for the second-most in a game by a Roadrunner",
+      "native_label": "text"
+    },
+    {
+      "index": 21,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        526,
+        894,
+        553
+      ],
+      "polygon": [
+        [
+          142,
+          530
+        ],
+        [
+          142,
+          553
+        ],
+        [
+          894,
+          553
+        ],
+        [
+          894,
+          526
+        ]
+      ],
+      "content": "McCulin's 11 catches are most since Joshua Cephus caught 11 in the win over North Texas in the 2022 Conference USA Championship Game.",
+      "native_label": "text"
+    },
+    {
+      "index": 22,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        555,
+        911,
+        583
+      ],
+      "polygon": [
+        [
+          82,
+          555
+        ],
+        [
+          87,
+          583
+        ],
+        [
+          911,
+          583
+        ],
+        [
+          911,
+          555
+        ]
+      ],
+      "content": "- Senior TE Oscar Cardenas became the ninth Roadrunner — and just the second tight end after David Morgan II (1,104)— to surpass 1,000 career receiving yards after his 35-yard catch late in the second quarter.",
+      "native_label": "text"
+    },
+    {
+      "index": 23,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        584,
+        550,
+        597
+      ],
+      "polygon": [
+        [
+          142,
+          584
+        ],
+        [
+          142,
+          588
+        ],
+        [
+          142,
+          597
+        ],
+        [
+          550,
+          597
+        ],
+        [
+          550,
+          584
+        ]
+      ],
+      "content": "Cardenas also had a 3-yard TD reception in the fourth quarter.",
+      "native_label": "text"
+    },
+    {
+      "index": 24,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        597,
+        914,
+        626
+      ],
+      "polygon": [
+        [
+          82,
+          625
+        ],
+        [
+          913,
+          625
+        ],
+        [
+          913,
+          597
+        ],
+        [
+          87,
+          597
+        ]
+      ],
+      "content": "- Sophomore QB Owen McCown threw for 340 yards and three touchdowns on 28-of-38 passing, including a UTSA career-long 61-yard third-down connection to Robert Henry at the start of the second quarter.",
+      "native_label": "text"
+    },
+    {
+      "index": 25,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        627,
+        600,
+        641
+      ],
+      "polygon": [
+        [
+          141,
+          627
+        ],
+        [
+          147,
+          641
+        ],
+        [
+          599,
+          641
+        ],
+        [
+          599,
+          627
+        ]
+      ],
+      "content": "That passing yardage total now ranks 10th on UTSA's single-game list.",
+      "native_label": "text"
+    },
+    {
+      "index": 26,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        642,
+        900,
+        670
+      ],
+      "polygon": [
+        [
+          142,
+          647
+        ],
+        [
+          142,
+          669
+        ],
+        [
+          660,
+          669
+        ],
+        [
+          665,
+          669
+        ],
+        [
+          899,
+          669
+        ],
+        [
+          899,
+          642
+        ]
+      ],
+      "content": "His passing output marks the third time a Roadrunner QB has thrown for 300-plus yards in a season opener, joining Blake Bogenschutz (332 at Arizona, 9/3/15) and Frank Harris (337 vs. Houston, 9/3/22)",
+      "native_label": "text"
+    },
+    {
+      "index": 27,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        671,
+        440,
+        685
+      ],
+      "polygon": [
+        [
+          142,
+          676
+        ],
+        [
+          142,
+          685
+        ],
+        [
+          440,
+          685
+        ],
+        [
+          440,
+          671
+        ],
+        [
+          163,
+          671
+        ],
+        [
+          153,
+          671
+        ]
+      ],
+      "content": "His 28 completions also mark a career high.",
+      "native_label": "text"
+    },
+    {
+      "index": 28,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        685,
+        928,
+        713
+      ],
+      "polygon": [
+        [
+          142,
+          704
+        ],
+        [
+          147,
+          712
+        ],
+        [
+          928,
+          712
+        ],
+        [
+          928,
+          685
+        ],
+        [
+          147,
+          685
+        ]
+      ],
+      "content": "McCown's three touchdown passes against the Owls marked the first 3-TD night for a UTSA passer since Frank Harris against South Florida on Nov.17,2023.",
+      "native_label": "text"
+    },
+    {
+      "index": 29,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        714,
+        634,
+        729
+      ],
+      "polygon": [
+        [
+          82,
+          714
+        ],
+        [
+          82,
+          728
+        ],
+        [
+          633,
+          728
+        ],
+        [
+          633,
+          714
+        ]
+      ],
+      "content": "- Senior S Ken Robinson posted a team-high seven tackles including one tackle for loss.",
+      "native_label": "text"
+    },
+    {
+      "index": 30,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        729,
+        628,
+        743
+      ],
+      "polygon": [
+        [
+          83,
+          729
+        ],
+        [
+          83,
+          742
+        ],
+        [
+          627,
+          742
+        ],
+        [
+          627,
+          729
+        ]
+      ],
+      "content": "- Sophomore $B Owen Pewee registered six tackles with one TFL and a pass breakup.",
+      "native_label": "text"
+    },
+    {
+      "index": 31,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        743,
+        487,
+        757
+      ],
+      "polygon": [
+        [
+          82,
+          743
+        ],
+        [
+          82,
+          752
+        ],
+        [
+          108,
+          757
+        ],
+        [
+          486,
+          757
+        ],
+        [
+          486,
+          743
+        ]
+      ],
+      "content": "- Senior S Elliott Davison made five stops and broke up a pass.",
+      "native_label": "text"
+    },
+    {
+      "index": 32,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        757,
+        878,
+        771
+      ],
+      "polygon": [
+        [
+          83,
+          757
+        ],
+        [
+          83,
+          771
+        ],
+        [
+          878,
+          771
+        ],
+        [
+          878,
+          757
+        ]
+      ],
+      "content": "- Senior OLB Jimmori Robinson, senior ILB Martavius French and redshirt freshman OLB James Walley Jr. each recorded a sack.",
+      "native_label": "text"
+    },
+    {
+      "index": 33,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        772,
+        671,
+        787
+      ],
+      "polygon": [
+        [
+          87,
+          772
+        ],
+        [
+          87,
+          783
+        ],
+        [
+          97,
+          787
+        ],
+        [
+          670,
+          787
+        ],
+        [
+          670,
+          776
+        ],
+        [
+          651,
+          772
+        ],
+        [
+          437,
+          772
+        ],
+        [
+          416,
+          772
+        ],
+        [
+          396,
+          772
+        ]
+      ],
+      "content": "- Sophomore S Jimmy Wyrick forced a fumble that was recovered by senior CB Syrus Dumas.",
+      "native_label": "text"
+    },
+    {
+      "index": 34,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        800,
+        194,
+        814
+      ],
+      "polygon": [
+        [
+          55,
+          800
+        ],
+        [
+          55,
+          814
+        ],
+        [
+          193,
+          814
+        ],
+        [
+          193,
+          800
+        ]
+      ],
+      "content": "## ADDITIONAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 35,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        815,
+        797,
+        830
+      ],
+      "polygon": [
+        [
+          82,
+          815
+        ],
+        [
+          82,
+          830
+        ],
+        [
+          797,
+          830
+        ],
+        [
+          797,
+          815
+        ]
+      ],
+      "content": "- UTSA's captains were senior TE Oscar Cardenas, senior WR De'Corian Clark and sophomore QB Owen McCown",
+      "native_label": "text"
+    }
+  ]
+]

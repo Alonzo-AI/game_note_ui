@@ -1,0 +1,1060 @@
+[
+  [
+    {
+      "index": 0,
+      "label": "image",
+      "bbox_2d": [
+        60,
+        45,
+        431,
+        179
+      ],
+      "polygon": [
+        [
+          60,
+          45
+        ],
+        [
+          60,
+          179
+        ],
+        [
+          430,
+          179
+        ],
+        [
+          430,
+          45
+        ]
+      ],
+      "content": null,
+      "native_label": "image"
+    },
+    {
+      "index": 1,
+      "label": "text",
+      "bbox_2d": [
+        54,
+        191,
+        306,
+        205
+      ],
+      "polygon": [
+        [
+          54,
+          191
+        ],
+        [
+          54,
+          205
+        ],
+        [
+          305,
+          205
+        ],
+        [
+          305,
+          191
+        ]
+      ],
+      "content": "## TEAM RECORDS AND SERIES NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 2,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        207,
+        554,
+        221
+      ],
+      "polygon": [
+        [
+          87,
+          212
+        ],
+        [
+          87,
+          220
+        ],
+        [
+          553,
+          220
+        ],
+        [
+          553,
+          207
+        ],
+        [
+          107,
+          207
+        ]
+      ],
+      "content": "- Texas improved to 3-0 with the win, while UTSA fell to 1-2 on the season.",
+      "native_label": "text"
+    },
+    {
+      "index": 3,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        221,
+        537,
+        236
+      ],
+      "polygon": [
+        [
+          82,
+          226
+        ],
+        [
+          82,
+          236
+        ],
+        [
+          537,
+          236
+        ],
+        [
+          532,
+          221
+        ],
+        [
+          112,
+          221
+        ]
+      ],
+      "content": "- Today's game marked the second meeting between UTSA and Texas.",
+      "native_label": "text"
+    },
+    {
+      "index": 4,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        236,
+        448,
+        250
+      ],
+      "polygon": [
+        [
+          83,
+          236
+        ],
+        [
+          83,
+          249
+        ],
+        [
+          447,
+          249
+        ],
+        [
+          447,
+          236
+        ]
+      ],
+      "content": "- The Longhorns now own a 2-0 advantage in the series.",
+      "native_label": "text"
+    },
+    {
+      "index": 5,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        250,
+        919,
+        278
+      ],
+      "polygon": [
+        [
+          82,
+          250
+        ],
+        [
+          82,
+          277
+        ],
+        [
+          918,
+          277
+        ],
+        [
+          918,
+          250
+        ]
+      ],
+      "content": "- Ranked No.2 in the AP Top 25 and No.3 in the AFCA Coaches Poll, Texas is the highest-ranked team UTSA has played in its 14-year history.",
+      "native_label": "text"
+    },
+    {
+      "index": 6,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        279,
+        515,
+        293
+      ],
+      "polygon": [
+        [
+          83,
+          279
+        ],
+        [
+          83,
+          292
+        ],
+        [
+          515,
+          292
+        ],
+        [
+          515,
+          279
+        ]
+      ],
+      "content": "- UTSA is now 40-16 (.714) under fifth-year head coach Jeff Traylor.",
+      "native_label": "text"
+    },
+    {
+      "index": 7,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        293,
+        661,
+        308
+      ],
+      "polygon": [
+        [
+          87,
+          293
+        ],
+        [
+          87,
+          307
+        ],
+        [
+          661,
+          307
+        ],
+        [
+          661,
+          293
+        ]
+      ],
+      "content": "- UTSA is now 35-22 all-time — 15-6 under Traylor — against teams from the state of Texas.",
+      "native_label": "text"
+    },
+    {
+      "index": 8,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        308,
+        450,
+        323
+      ],
+      "polygon": [
+        [
+          82,
+          308
+        ],
+        [
+          82,
+          322
+        ],
+        [
+          450,
+          322
+        ],
+        [
+          450,
+          308
+        ]
+      ],
+      "content": "- The Roadrunners are now 9-3 over their last 12 games.",
+      "native_label": "text"
+    },
+    {
+      "index": 9,
+      "label": "text",
+      "bbox_2d": [
+        54,
+        336,
+        150,
+        350
+      ],
+      "polygon": [
+        [
+          54,
+          336
+        ],
+        [
+          54,
+          350
+        ],
+        [
+          149,
+          350
+        ],
+        [
+          149,
+          336
+        ]
+      ],
+      "content": "## TEAM NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 10,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        350,
+        775,
+        367
+      ],
+      "polygon": [
+        [
+          83,
+          350
+        ],
+        [
+          83,
+          366
+        ],
+        [
+          774,
+          366
+        ],
+        [
+          774,
+          350
+        ]
+      ],
+      "content": "- The Roadrunners forced two turnovers, an interception by Owen Pewee and a fumble recovery by Tyan Milton.",
+      "native_label": "text"
+    },
+    {
+      "index": 11,
+      "label": "text",
+      "bbox_2d": [
+        151,
+        366,
+        734,
+        380
+      ],
+      "polygon": [
+        [
+          151,
+          380
+        ],
+        [
+          734,
+          380
+        ],
+        [
+          729,
+          366
+        ],
+        [
+          157,
+          366
+        ]
+      ],
+      "content": "UTSA has four total takeaways this season, two fumble recoveries and a pair of interceptions.",
+      "native_label": "text"
+    },
+    {
+      "index": 12,
+      "label": "text",
+      "bbox_2d": [
+        143,
+        380,
+        760,
+        395
+      ],
+      "polygon": [
+        [
+          143,
+          380
+        ],
+        [
+          143,
+          395
+        ],
+        [
+          759,
+          395
+        ],
+        [
+          759,
+          380
+        ]
+      ],
+      "content": "UTSA now has come up with a takeaway in 13 consecutive games dating back to last September.",
+      "native_label": "text"
+    },
+    {
+      "index": 13,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        395,
+        374,
+        409
+      ],
+      "polygon": [
+        [
+          81,
+          395
+        ],
+        [
+          81,
+          400
+        ],
+        [
+          87,
+          409
+        ],
+        [
+          373,
+          409
+        ],
+        [
+          373,
+          395
+        ]
+      ],
+      "content": "- UTSA rushed for a season-high 128 yards.",
+      "native_label": "text"
+    },
+    {
+      "index": 14,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        409,
+        758,
+        425
+      ],
+      "polygon": [
+        [
+          81,
+          409
+        ],
+        [
+          81,
+          424
+        ],
+        [
+          757,
+          424
+        ],
+        [
+          757,
+          409
+        ]
+      ],
+      "content": "- The Roadrunners won the possession battle, holding the football for 31:01 minutes to the Longhorns' 28:59.",
+      "native_label": "text"
+    },
+    {
+      "index": 15,
+      "label": "text",
+      "bbox_2d": [
+        54,
+        437,
+        188,
+        452
+      ],
+      "polygon": [
+        [
+          54,
+          437
+        ],
+        [
+          54,
+          451
+        ],
+        [
+          188,
+          451
+        ],
+        [
+          188,
+          437
+        ]
+      ],
+      "content": "## INDIVIDUAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 16,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        454,
+        505,
+        467
+      ],
+      "polygon": [
+        [
+          87,
+          454
+        ],
+        [
+          87,
+          462
+        ],
+        [
+          97,
+          467
+        ],
+        [
+          490,
+          467
+        ],
+        [
+          504,
+          467
+        ],
+        [
+          504,
+          454
+        ]
+      ],
+      "content": "- Senior ILB Martavius French logged seven tackles to lead UTSA.",
+      "native_label": "text"
+    },
+    {
+      "index": 17,
+      "label": "text",
+      "bbox_2d": [
+        140,
+        468,
+        929,
+        495
+      ],
+      "polygon": [
+        [
+          140,
+          468
+        ],
+        [
+          140,
+          494
+        ],
+        [
+          928,
+          494
+        ],
+        [
+          928,
+          468
+        ]
+      ],
+      "content": "He now has 13 stops on the season, slotting him just behind Ken Robinson (14), Brevin Randle (14) and Elliot Davison (14) for the team lead.",
+      "native_label": "text"
+    },
+    {
+      "index": 18,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        496,
+        934,
+        511
+      ],
+      "polygon": [
+        [
+          81,
+          501
+        ],
+        [
+          81,
+          510
+        ],
+        [
+          933,
+          510
+        ],
+        [
+          933,
+          501
+        ],
+        [
+          878,
+          496
+        ]
+      ],
+      "content": "- Senior ILB Jamal Ligon, senior ILB Brevin Randle, senior S Elliott Davison and sophomore S Jimmy Wyrick registered five tackles apiece.",
+      "native_label": "text"
+    },
+    {
+      "index": 19,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        512,
+        801,
+        526
+      ],
+      "polygon": [
+        [
+          81,
+          521
+        ],
+        [
+          800,
+          525
+        ],
+        [
+          800,
+          512
+        ],
+        [
+          87,
+          512
+        ]
+      ],
+      "content": "- Senior $B Donvai Tavlor recorded three tackles and a sack for a 10-yard loss in his first appearance of the season.",
+      "native_label": "text"
+    },
+    {
+      "index": 20,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        526,
+        807,
+        540
+      ],
+      "polygon": [
+        [
+          83,
+          526
+        ],
+        [
+          83,
+          540
+        ],
+        [
+          806,
+          540
+        ],
+        [
+          806,
+          526
+        ]
+      ],
+      "content": "- Sophomore $B Owen Pewee had an interception return of 11 yards in the first quarter, the second INT of his career.",
+      "native_label": "text"
+    },
+    {
+      "index": 21,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        540,
+        499,
+        555
+      ],
+      "polygon": [
+        [
+          82,
+          540
+        ],
+        [
+          82,
+          554
+        ],
+        [
+          498,
+          554
+        ],
+        [
+          498,
+          540
+        ]
+      ],
+      "content": "- Senior RB Robert Henry Jr. rushed for 65 yards on six attempts.",
+      "native_label": "text"
+    },
+    {
+      "index": 22,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        555,
+        615,
+        569
+      ],
+      "polygon": [
+        [
+          141,
+          555
+        ],
+        [
+          141,
+          569
+        ],
+        [
+          614,
+          569
+        ],
+        [
+          614,
+          555
+        ]
+      ],
+      "content": "His 53-yard TD run in the second quarter is the longest rush of his career.",
+      "native_label": "text"
+    },
+    {
+      "index": 23,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        570,
+        527,
+        583
+      ],
+      "polygon": [
+        [
+          142,
+          570
+        ],
+        [
+          142,
+          583
+        ],
+        [
+          527,
+          583
+        ],
+        [
+          527,
+          570
+        ]
+      ],
+      "content": "He now has rushed for a team-high 121 yards this season.",
+      "native_label": "text"
+    },
+    {
+      "index": 24,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        584,
+        571,
+        598
+      ],
+      "polygon": [
+        [
+          142,
+          589
+        ],
+        [
+          147,
+          597
+        ],
+        [
+          570,
+          597
+        ],
+        [
+          570,
+          584
+        ],
+        [
+          147,
+          584
+        ]
+      ],
+      "content": "He now has 12 career rushing TDs, tied for ninth in school history.",
+      "native_label": "text"
+    },
+    {
+      "index": 25,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        598,
+        558,
+        613
+      ],
+      "polygon": [
+        [
+          82,
+          598
+        ],
+        [
+          87,
+          612
+        ],
+        [
+          97,
+          612
+        ],
+        [
+          107,
+          612
+        ],
+        [
+          558,
+          612
+        ],
+        [
+          558,
+          598
+        ]
+      ],
+      "content": "- Sophomore QB Owen McCown completed 21-of-29 passes for 132 yards.",
+      "native_label": "text"
+    },
+    {
+      "index": 26,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        612,
+        490,
+        627
+      ],
+      "polygon": [
+        [
+          146,
+          612
+        ],
+        [
+          146,
+          626
+        ],
+        [
+          490,
+          626
+        ],
+        [
+          490,
+          612
+        ]
+      ],
+      "content": "McCown completed passes to 12 different receivers.",
+      "native_label": "text"
+    },
+    {
+      "index": 27,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        626,
+        741,
+        642
+      ],
+      "polygon": [
+        [
+          82,
+          626
+        ],
+        [
+          82,
+          641
+        ],
+        [
+          740,
+          641
+        ],
+        [
+          740,
+          626
+        ]
+      ],
+      "content": "- Sophomore WR Devin McCuin led the receiving corps, hauling in five passes on five targets for 27 yards.",
+      "native_label": "text"
+    },
+    {
+      "index": 28,
+      "label": "text",
+      "bbox_2d": [
+        143,
+        641,
+        575,
+        655
+      ],
+      "polygon": [
+        [
+          143,
+          641
+        ],
+        [
+          143,
+          655
+        ],
+        [
+          575,
+          655
+        ],
+        [
+          575,
+          641
+        ]
+      ],
+      "content": "McCuin leads UTSA with 22 receptions and 135 yards this season.",
+      "native_label": "text"
+    },
+    {
+      "index": 29,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        656,
+        570,
+        670
+      ],
+      "polygon": [
+        [
+          87,
+          656
+        ],
+        [
+          87,
+          670
+        ],
+        [
+          570,
+          670
+        ],
+        [
+          570,
+          656
+        ]
+      ],
+      "content": "- Sophomore WR Jace Wilson had a career-high two receptions for 14 yards.",
+      "native_label": "text"
+    },
+    {
+      "index": 30,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        671,
+        644,
+        686
+      ],
+      "polygon": [
+        [
+          82,
+          671
+        ],
+        [
+          82,
+          685
+        ],
+        [
+          643,
+          685
+        ],
+        [
+          643,
+          671
+        ]
+      ],
+      "content": "- Freshman RB Brandon High Jr. rushed for 27 yards on seven carries, both career highs.",
+      "native_label": "text"
+    },
+    {
+      "index": 31,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        699,
+        194,
+        712
+      ],
+      "polygon": [
+        [
+          55,
+          699
+        ],
+        [
+          55,
+          712
+        ],
+        [
+          194,
+          712
+        ],
+        [
+          194,
+          699
+        ]
+      ],
+      "content": "## ADDITIONAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 32,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        714,
+        728,
+        728
+      ],
+      "polygon": [
+        [
+          82,
+          714
+        ],
+        [
+          87,
+          728
+        ],
+        [
+          728,
+          728
+        ],
+        [
+          728,
+          714
+        ]
+      ],
+      "content": "- UTSA's captains were junior CB Zah Frazier, senior ILB Martavius French and senior S Elliott Davison.",
+      "native_label": "text"
+    },
+    {
+      "index": 33,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        729,
+        657,
+        744
+      ],
+      "polygon": [
+        [
+          84,
+          743
+        ],
+        [
+          652,
+          743
+        ],
+        [
+          657,
+          729
+        ],
+        [
+          84,
+          729
+        ]
+      ],
+      "content": "- Tonight's attendance was 101,892, marking the fourth-largest crowd to see a UTSA game.",
+      "native_label": "text"
+    }
+  ]
+]

@@ -1,0 +1,1232 @@
+[
+  [
+    {
+      "index": 0,
+      "label": "image",
+      "bbox_2d": [
+        60,
+        45,
+        431,
+        179
+      ],
+      "polygon": [
+        [
+          60,
+          45
+        ],
+        [
+          60,
+          178
+        ],
+        [
+          431,
+          178
+        ],
+        [
+          431,
+          45
+        ]
+      ],
+      "content": null,
+      "native_label": "image"
+    },
+    {
+      "index": 1,
+      "label": "text",
+      "bbox_2d": [
+        54,
+        191,
+        305,
+        205
+      ],
+      "polygon": [
+        [
+          54,
+          191
+        ],
+        [
+          54,
+          205
+        ],
+        [
+          305,
+          205
+        ],
+        [
+          305,
+          191
+        ]
+      ],
+      "content": "## TEAM RECORDS AND SERIES NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 2,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        206,
+        712,
+        221
+      ],
+      "polygon": [
+        [
+          82,
+          206
+        ],
+        [
+          82,
+          220
+        ],
+        [
+          712,
+          220
+        ],
+        [
+          712,
+          206
+        ],
+        [
+          102,
+          206
+        ]
+      ],
+      "content": "- UTSA fell to 3-4 overall and 1-2 in American Conference play. North Texas improved to 6-1 and 2-1.",
+      "native_label": "text"
+    },
+    {
+      "index": 3,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        221,
+        708,
+        237
+      ],
+      "polygon": [
+        [
+          141,
+          225
+        ],
+        [
+          146,
+          237
+        ],
+        [
+          708,
+          233
+        ],
+        [
+          708,
+          221
+        ],
+        [
+          151,
+          221
+        ]
+      ],
+      "content": "The Roadrunners lead the series, 8-6, and this is the first North Texas victory since 2021.",
+      "native_label": "text"
+    },
+    {
+      "index": 4,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        236,
+        651,
+        250
+      ],
+      "polygon": [
+        [
+          142,
+          241
+        ],
+        [
+          142,
+          250
+        ],
+        [
+          650,
+          250
+        ],
+        [
+          650,
+          236
+        ],
+        [
+          158,
+          236
+        ]
+      ],
+      "content": "This was the 14th meeting, making it the most-played series in program history.",
+      "native_label": "text"
+    },
+    {
+      "index": 5,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        250,
+        407,
+        265
+      ],
+      "polygon": [
+        [
+          87,
+          250
+        ],
+        [
+          87,
+          264
+        ],
+        [
+          406,
+          264
+        ],
+        [
+          406,
+          250
+        ]
+      ],
+      "content": "- UTSA is now 60-44 (.577) in conference games.",
+      "native_label": "text"
+    },
+    {
+      "index": 6,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        265,
+        570,
+        279
+      ],
+      "polygon": [
+        [
+          142,
+          275
+        ],
+        [
+          142,
+          279
+        ],
+        [
+          570,
+          279
+        ],
+        [
+          570,
+          265
+        ],
+        [
+          147,
+          265
+        ]
+      ],
+      "content": "The Roadrunners are 12-7 (.632) in American Conference games.",
+      "native_label": "text"
+    },
+    {
+      "index": 7,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        279,
+        506,
+        293
+      ],
+      "polygon": [
+        [
+          83,
+          279
+        ],
+        [
+          83,
+          293
+        ],
+        [
+          505,
+          293
+        ],
+        [
+          505,
+          279
+        ]
+      ],
+      "content": "- UTSA is now 39-26 (.600) against teams from the state of Texas.",
+      "native_label": "text"
+    },
+    {
+      "index": 8,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        294,
+        476,
+        308
+      ],
+      "polygon": [
+        [
+          82,
+          294
+        ],
+        [
+          82,
+          307
+        ],
+        [
+          475,
+          307
+        ],
+        [
+          475,
+          294
+        ]
+      ],
+      "content": "- Head coach Jeff Traylor is 49-24 (.671) overall (since 2020).",
+      "native_label": "text"
+    },
+    {
+      "index": 9,
+      "label": "text",
+      "bbox_2d": [
+        143,
+        309,
+        418,
+        323
+      ],
+      "polygon": [
+        [
+          143,
+          309
+        ],
+        [
+          143,
+          323
+        ],
+        [
+          417,
+          323
+        ],
+        [
+          417,
+          309
+        ]
+      ],
+      "content": "He is 32-10 (.762) in conference games.",
+      "native_label": "text"
+    },
+    {
+      "index": 10,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        323,
+        514,
+        337
+      ],
+      "polygon": [
+        [
+          142,
+          323
+        ],
+        [
+          142,
+          337
+        ],
+        [
+          513,
+          337
+        ],
+        [
+          513,
+          323
+        ]
+      ],
+      "content": "He is 19-10 (.655) versus teams from the state of Texas.",
+      "native_label": "text"
+    },
+    {
+      "index": 11,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        350,
+        149,
+        365
+      ],
+      "polygon": [
+        [
+          55,
+          350
+        ],
+        [
+          55,
+          364
+        ],
+        [
+          148,
+          364
+        ],
+        [
+          148,
+          350
+        ]
+      ],
+      "content": "## TEAM NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 12,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        365,
+        718,
+        380
+      ],
+      "polygon": [
+        [
+          82,
+          365
+        ],
+        [
+          87,
+          380
+        ],
+        [
+          717,
+          380
+        ],
+        [
+          717,
+          365
+        ]
+      ],
+      "content": "- UTSA rushed for 214 yards, marking the sixth time this season with at least 172 yards on the ground.",
+      "native_label": "text"
+    },
+    {
+      "index": 13,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        381,
+        574,
+        395
+      ],
+      "polygon": [
+        [
+          82,
+          390
+        ],
+        [
+          82,
+          395
+        ],
+        [
+          573,
+          395
+        ],
+        [
+          573,
+          381
+        ],
+        [
+          87,
+          381
+        ]
+      ],
+      "content": "- The Roadrunners scored on their first possession for the third straight game.",
+      "native_label": "text"
+    },
+    {
+      "index": 14,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        395,
+        481,
+        410
+      ],
+      "polygon": [
+        [
+          81,
+          395
+        ],
+        [
+          81,
+          400
+        ],
+        [
+          81,
+          409
+        ],
+        [
+          480,
+          409
+        ],
+        [
+          480,
+          395
+        ]
+      ],
+      "content": "- UTSA now has registered a sack in 29 of the past 30 games.",
+      "native_label": "text"
+    },
+    {
+      "index": 15,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        422,
+        188,
+        437
+      ],
+      "polygon": [
+        [
+          55,
+          422
+        ],
+        [
+          55,
+          437
+        ],
+        [
+          187,
+          437
+        ],
+        [
+          187,
+          422
+        ]
+      ],
+      "content": "## INDIVIDUAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 16,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        438,
+        800,
+        453
+      ],
+      "polygon": [
+        [
+          84,
+          438
+        ],
+        [
+          84,
+          452
+        ],
+        [
+          799,
+          452
+        ],
+        [
+          799,
+          438
+        ]
+      ],
+      "content": "- Senior RB Robert Henry Jr. rushed for 138 yards and a touchdown on 12 attempts, averaging 11.5 yards per carry.",
+      "native_label": "text"
+    },
+    {
+      "index": 17,
+      "label": "text",
+      "bbox_2d": [
+        138,
+        454,
+        811,
+        467
+      ],
+      "polygon": [
+        [
+          138,
+          454
+        ],
+        [
+          144,
+          467
+        ],
+        [
+          810,
+          467
+        ],
+        [
+          810,
+          454
+        ]
+      ],
+      "content": "He topped 100 yards on the ground for the fifth time this season and seventh time in the last nine contests.",
+      "native_label": "text"
+    },
+    {
+      "index": 18,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        468,
+        891,
+        482
+      ],
+      "polygon": [
+        [
+          141,
+          468
+        ],
+        [
+          141,
+          481
+        ],
+        [
+          891,
+          481
+        ],
+        [
+          891,
+          468
+        ]
+      ],
+      "content": "His 72-yard rush on the first play marked his FBS-best fifth run and sixth play from scrimmage of 70-plus yards this year.",
+      "native_label": "text"
+    },
+    {
+      "index": 19,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        483,
+        732,
+        497
+      ],
+      "polygon": [
+        [
+          141,
+          483
+        ],
+        [
+          147,
+          496
+        ],
+        [
+          732,
+          496
+        ],
+        [
+          732,
+          483
+        ]
+      ],
+      "content": "O Over his last nine games, he has rushed for 1,244 yards and 13 TDs on 140 carries (8.9 ypc).",
+      "native_label": "text"
+    },
+    {
+      "index": 20,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        496,
+        940,
+        525
+      ],
+      "polygon": [
+        [
+          141,
+          501
+        ],
+        [
+          141,
+          524
+        ],
+        [
+          940,
+          524
+        ],
+        [
+          940,
+          496
+        ]
+      ],
+      "content": "o Henry has rushed for over 100 yards in two consecutive games against North Texas, going for 168 in 2024 in the first of his nine-game stretch.",
+      "native_label": "text"
+    },
+    {
+      "index": 21,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        525,
+        465,
+        540
+      ],
+      "polygon": [
+        [
+          81,
+          525
+        ],
+        [
+          81,
+          530
+        ],
+        [
+          81,
+          540
+        ],
+        [
+          465,
+          540
+        ],
+        [
+          465,
+          525
+        ]
+      ],
+      "content": "- Junior WR Devin McCuin had four receptions for 23 yards.",
+      "native_label": "text"
+    },
+    {
+      "index": 22,
+      "label": "text",
+      "bbox_2d": [
+        142,
+        540,
+        490,
+        555
+      ],
+      "polygon": [
+        [
+          142,
+          540
+        ],
+        [
+          142,
+          554
+        ],
+        [
+          490,
+          554
+        ],
+        [
+          490,
+          540
+        ]
+      ],
+      "content": "He has now caught a pass in 26 consecutive games.",
+      "native_label": "text"
+    },
+    {
+      "index": 23,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        555,
+        442,
+        569
+      ],
+      "polygon": [
+        [
+          87,
+          555
+        ],
+        [
+          87,
+          568
+        ],
+        [
+          441,
+          568
+        ],
+        [
+          441,
+          555
+        ]
+      ],
+      "content": "- Junior WR AJ Wilson caught four passes for 35 yards.",
+      "native_label": "text"
+    },
+    {
+      "index": 24,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        569,
+        607,
+        583
+      ],
+      "polygon": [
+        [
+          87,
+          569
+        ],
+        [
+          87,
+          583
+        ],
+        [
+          157,
+          583
+        ],
+        [
+          172,
+          583
+        ],
+        [
+          191,
+          583
+        ],
+        [
+          197,
+          583
+        ],
+        [
+          207,
+          583
+        ],
+        [
+          217,
+          583
+        ],
+        [
+          606,
+          583
+        ],
+        [
+          606,
+          569
+        ]
+      ],
+      "content": "- Junior TE Houston Thomas made a pair of catches for 21 yards and a touchdown.",
+      "native_label": "text"
+    },
+    {
+      "index": 25,
+      "label": "text",
+      "bbox_2d": [
+        143,
+        583,
+        742,
+        597
+      ],
+      "polygon": [
+        [
+          143,
+          583
+        ],
+        [
+          143,
+          597
+        ],
+        [
+          372,
+          597
+        ],
+        [
+          383,
+          597
+        ],
+        [
+          422,
+          597
+        ],
+        [
+          428,
+          597
+        ],
+        [
+          448,
+          597
+        ],
+        [
+          458,
+          597
+        ],
+        [
+          742,
+          597
+        ],
+        [
+          742,
+          583
+        ]
+      ],
+      "content": "His 3-yard TD catch in the first quarter was his first score of the season and fourth of his career.",
+      "native_label": "text"
+    },
+    {
+      "index": 26,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        597,
+        730,
+        612
+      ],
+      "polygon": [
+        [
+          82,
+          597
+        ],
+        [
+          87,
+          611
+        ],
+        [
+          729,
+          611
+        ],
+        [
+          729,
+          597
+        ]
+      ],
+      "content": "- Redshirt freshman Will Henderson III had five carries for 65 yards for an average of 13.0 yards per tote.",
+      "native_label": "text"
+    },
+    {
+      "index": 27,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        612,
+        731,
+        627
+      ],
+      "polygon": [
+        [
+          81,
+          612
+        ],
+        [
+          86,
+          626
+        ],
+        [
+          730,
+          626
+        ],
+        [
+          730,
+          612
+        ]
+      ],
+      "content": "- Senior ILB Kendrick Blackshire tallied seven tackles, tying junior ILB Brandon Tucker for the team high.",
+      "native_label": "text"
+    },
+    {
+      "index": 28,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        627,
+        615,
+        641
+      ],
+      "polygon": [
+        [
+          87,
+          627
+        ],
+        [
+          87,
+          640
+        ],
+        [
+          615,
+          640
+        ],
+        [
+          615,
+          627
+        ]
+      ],
+      "content": "- Redshirt sophomore OLB Nnanna Anyanwu recorded four tackles, including a sack.",
+      "native_label": "text"
+    },
+    {
+      "index": 29,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        641,
+        427,
+        656
+      ],
+      "polygon": [
+        [
+          83,
+          641
+        ],
+        [
+          83,
+          655
+        ],
+        [
+          426,
+          655
+        ],
+        [
+          426,
+          646
+        ],
+        [
+          421,
+          641
+        ],
+        [
+          301,
+          641
+        ],
+        [
+          290,
+          641
+        ]
+      ],
+      "content": "- Sophomore CB Davin Martin registered five tackles.",
+      "native_label": "text"
+    },
+    {
+      "index": 30,
+      "label": "text",
+      "bbox_2d": [
+        84,
+        656,
+        395,
+        670
+      ],
+      "polygon": [
+        [
+          84,
+          656
+        ],
+        [
+          84,
+          669
+        ],
+        [
+          395,
+          669
+        ],
+        [
+          395,
+          656
+        ]
+      ],
+      "content": "- Junior $B Owen Pewee managed four tackles.",
+      "native_label": "text"
+    },
+    {
+      "index": 31,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        670,
+        669,
+        685
+      ],
+      "polygon": [
+        [
+          83,
+          670
+        ],
+        [
+          83,
+          685
+        ],
+        [
+          668,
+          685
+        ],
+        [
+          668,
+          670
+        ]
+      ],
+      "content": "- Senior P Caile Hogan averaged 50.6 yards per punt, with a long of 60, tying his season high.",
+      "native_label": "text"
+    },
+    {
+      "index": 32,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        685,
+        744,
+        700
+      ],
+      "polygon": [
+        [
+          82,
+          685
+        ],
+        [
+          82,
+          699
+        ],
+        [
+          743,
+          699
+        ],
+        [
+          743,
+          685
+        ]
+      ],
+      "content": "- Sophomore PK Michael Petro made a 29-yard field goal in the third quarter for his fifth consecutive make.",
+      "native_label": "text"
+    },
+    {
+      "index": 33,
+      "label": "text",
+      "bbox_2d": [
+        141,
+        700,
+        759,
+        714
+      ],
+      "polygon": [
+        [
+          141,
+          700
+        ],
+        [
+          141,
+          714
+        ],
+        [
+          758,
+          714
+        ],
+        [
+          758,
+          700
+        ]
+      ],
+      "content": "He is now 6-of-7 on field goals and a perfect (28-of-28 entering today) on extra points this season.",
+      "native_label": "text"
+    },
+    {
+      "index": 34,
+      "label": "text",
+      "bbox_2d": [
+        55,
+        728,
+        193,
+        742
+      ],
+      "polygon": [
+        [
+          55,
+          728
+        ],
+        [
+          55,
+          741
+        ],
+        [
+          192,
+          741
+        ],
+        [
+          192,
+          728
+        ]
+      ],
+      "content": "## ADDITIONAL NOTES",
+      "native_label": "paragraph_title"
+    },
+    {
+      "index": 35,
+      "label": "text",
+      "bbox_2d": [
+        82,
+        742,
+        918,
+        770
+      ],
+      "polygon": [
+        [
+          82,
+          742
+        ],
+        [
+          82,
+          770
+        ],
+        [
+          918,
+          770
+        ],
+        [
+          918,
+          742
+        ]
+      ],
+      "content": "- UTSA's captains today were senior ILB Kendrick Blackshire, senior DL Jon Jones, junior ILB Brandon Tucker and sophomore S Jimmy Wyrick.",
+      "native_label": "text"
+    },
+    {
+      "index": 36,
+      "label": "text",
+      "bbox_2d": [
+        81,
+        772,
+        925,
+        800
+      ],
+      "polygon": [
+        [
+          81,
+          777
+        ],
+        [
+          81,
+          799
+        ],
+        [
+          924,
+          799
+        ],
+        [
+          924,
+          772
+        ]
+      ],
+      "content": "- The Roadrunners wore white helmets,white jerseys and white pants,and the record now stands at 10-10 all-time and 1-1 this season in that uniform combination.",
+      "native_label": "text"
+    },
+    {
+      "index": 37,
+      "label": "text",
+      "bbox_2d": [
+        83,
+        800,
+        715,
+        815
+      ],
+      "polygon": [
+        [
+          83,
+          800
+        ],
+        [
+          83,
+          815
+        ],
+        [
+          714,
+          815
+        ],
+        [
+          714,
+          800
+        ]
+      ],
+      "content": "- This is the 15th season of UTSA Football. The Roadrunners' all-time record now sits at 94-85 (.525).",
+      "native_label": "text"
+    }
+  ]
+]
