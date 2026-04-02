@@ -1,21 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { Send, Bot, User, Loader2, Search, BookOpen, ExternalLink, X } from 'lucide-react';
+import { Send, Bot, User, Loader2, Search, BookOpen, ExternalLink, X, Calendar, Users, ChevronDown, ChevronUp } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import PdfViewer from './PdfViewer';
 
-const API_BASE_URL = 'http://localhost:8003';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function App() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
+    const [teamName, setTeamName] = useState('');
+    const [opponentTeam, setOpponentTeam] = useState('');
+    const [gameDate, setGameDate] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [isOptionsLoading, setIsOptionsLoading] = useState(true);
+    const [filterOptions, setFilterOptions] = useState({
+        team_names: [],
+        opponent_team_names: [],
+        game_dates: []
+    });
     const [pdfViewerData, setPdfViewerData] = useState(null);
+    const [isGameNotesExpanded, setIsGameNotesExpanded] = useState(true);
+    const [isOverviewExpanded, setIsOverviewExpanded] = useState(true);
     const resultsEndRef = useRef(null);
+
+    useEffect(() => {
+        const loadFilterOptions = async () => {
+            setIsOptionsLoading(true);
+            try {
+                const response = await axios.get(`${API_BASE_URL}/filter-options`);
+                setFilterOptions(response.data);
+                if (response.data.team_names?.length === 1) {
+                    setTeamName(response.data.team_names[0]);
+                }
+            } catch (error) {
+                console.error('Error loading filter options:', error);
+            } finally {
+                setIsOptionsLoading(false);
+            }
+        };
+
+        loadFilterOptions();
+    }, []);
 
     const handleSend = async (e) => {
         if (e) e.preventDefault();
-        if (!input.trim() || isLoading) return;
+        if (!input.trim() || !teamName || isLoading || isOptionsLoading) return;
 
         const userQuery = input.trim();
         setInput('');
@@ -26,7 +56,12 @@ function App() {
         setMessages(prev => [{ role: 'user', content: userQuery }]);
 
         try {
-            const response = await axios.post(`${API_BASE_URL}/chat`, { message: userQuery });
+            const response = await axios.post(`${API_BASE_URL}/chat`, {
+                message: userQuery,
+                team_name: teamName,
+                opponent_team: opponentTeam || null,
+                game_date: gameDate || null
+            });
             const { reply, chunks } = response.data;
             setMessages(prev => [...prev, {
                 role: 'bot',
@@ -72,6 +107,21 @@ function App() {
         }
     };
 
+    const splitContent = (content) => {
+        const separator = "### Game by Game Notes";
+        const parts = content.split(separator);
+        if (parts.length > 1) {
+            return {
+                overview: parts[0].trim(),
+                gameNotes: separator + parts[1]
+            };
+        }
+        return {
+            overview: content,
+            gameNotes: ""
+        };
+    };
+
     return (
         <div className="search-app">
             <header className="search-header">
@@ -87,11 +137,67 @@ function App() {
                             placeholder="Ask UTSA game notes anything..."
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            disabled={isLoading}
+                            disabled={isLoading || isOptionsLoading}
                         />
-                        <button type="submit" className="search-button" disabled={!input.trim() || isLoading}>
+                        <button
+                            type="submit"
+                            className="search-button"
+                            disabled={!input.trim() || !teamName || isLoading || isOptionsLoading}
+                        >
                             {isLoading ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
                         </button>
+                    </div>
+                    <div className="filter-row">
+                        <div className="filter-item">
+                            <BookOpen size={16} />
+                            <select
+                                value={teamName}
+                                onChange={(e) => setTeamName(e.target.value)}
+                                disabled={isLoading || isOptionsLoading}
+                                required
+                            >
+                                <option value="">{isOptionsLoading ? 'Loading teams...' : 'Select team *'}</option>
+                                {filterOptions.team_names.map((team) => (
+                                    <option key={team} value={team}>{team}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="filter-item">
+                            <Users size={16} />
+                            <select
+                                value={opponentTeam}
+                                onChange={(e) => setOpponentTeam(e.target.value)}
+                                disabled={isLoading || isOptionsLoading}
+                            >
+                                <option value="">{isOptionsLoading ? 'Loading opponents...' : 'All opponents'}</option>
+                                {filterOptions.opponent_team_names.map((opponent) => (
+                                    <option key={opponent} value={opponent}>{opponent}</option>
+                                ))}
+                            </select>
+                            {opponentTeam && (
+                                <button type="button" className="clear-filter" onClick={() => setOpponentTeam('')}>
+                                    <X size={14} />
+                                </button>
+                            )}
+                        </div>
+                        <div className="filter-item">
+                            <Calendar size={16} />
+                            <select
+                                value={gameDate}
+                                onChange={(e) => setGameDate(e.target.value)}
+                                disabled={isLoading || isOptionsLoading}
+                            >
+                                <option value="">{isOptionsLoading ? 'Loading dates...' : 'All game dates'}</option>
+                                {filterOptions.game_dates.map((date) => (
+                                    <option key={date} value={date}>{date}</option>
+                                ))}
+                            </select>
+                            {gameDate && (
+                                <button type="button" className="clear-filter" onClick={() => setGameDate('')}>
+                                    <X size={14} />
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </form>
             </header>
@@ -101,6 +207,7 @@ function App() {
                     <div className="empty-state">
                         <h2>Welcome to Coach's Brain</h2>
                         <p>Search through seasons of UTSA football game notes, player stats, and historic milestones.</p>
+                        <p className="empty-state-hint">Select a team first. Opponent and game date are optional filters.</p>
                         <div className="suggested-queries">
                             {['How did UTSA perform against Tulsa?', 'Who was the top rusher in 2024?', 'UTSA vs North Texas history'].map(q => (
                                 <button key={q} onClick={() => { setInput(q); }}>{q}</button>
@@ -127,33 +234,89 @@ function App() {
                                         <span>Answer</span>
                                     </div>
                                     <div className="answer-body">
-                                        <ReactMarkdown
-                                            components={{
-                                                a: ({ href, children }) => {
-                                                    if (href && href.startsWith('#citation-')) {
-                                                        const index = parseInt(href.replace('#citation-', ''), 10);
-                                                        const chunk = latestResult.chunks?.[index - 1];
-                                                        if (chunk) {
-                                                            return (
-                                                                <button
-                                                                    className="inline-citation"
-                                                                    title={`Go to source [${index}]: ${chunk.metadata?.source_file}`}
-                                                                    onClick={(e) => {
-                                                                        e.preventDefault();
-                                                                        handleSourceClick(chunk);
-                                                                    }}
-                                                                >
-                                                                    [{children}]
-                                                                </button>
-                                                            );
-                                                        }
-                                                    }
-                                                    return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
-                                                }
-                                            }}
-                                        >
-                                            {latestResult.content.replace(/\[(\d+)\]/g, '[$1](#citation-$1)')}
-                                        </ReactMarkdown>
+                                        {splitContent(latestResult.content).gameNotes && (
+                                            <div className="game-notes-section">
+                                                <button
+                                                    className="section-header-btn game-notes-header"
+                                                    onClick={() => setIsGameNotesExpanded(!isGameNotesExpanded)}
+                                                >
+                                                    <div className="section-label">Game by Game Notes</div>
+                                                    {isGameNotesExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                                                </button>
+                                                {isGameNotesExpanded && (
+                                                    <div className="section-content">
+                                                        <ReactMarkdown
+                                                            components={{
+                                                                a: ({ href, children }) => {
+                                                                    if (href && href.startsWith('#citation-')) {
+                                                                        const index = parseInt(href.replace('#citation-', ''), 10);
+                                                                        const chunk = latestResult.chunks?.[index - 1];
+                                                                        if (chunk) {
+                                                                            return (
+                                                                                <button
+                                                                                    className="inline-citation"
+                                                                                    title={`Go to source [${index}]: ${chunk.metadata?.source_file}`}
+                                                                                    onClick={(e) => {
+                                                                                        e.preventDefault();
+                                                                                        handleSourceClick(chunk);
+                                                                                    }}
+                                                                                >
+                                                                                    [{children}]
+                                                                                </button>
+                                                                            );
+                                                                        }
+                                                                    }
+                                                                    return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+                                                                }
+                                                            }}
+                                                        >
+                                                            {splitContent(latestResult.content).gameNotes.replace(/\[(\d+)\]/g, '[$1](#citation-$1)')}
+                                                        </ReactMarkdown>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+
+                                        <div className="overview-section">
+                                            <button
+                                                className="section-header-btn overview-header"
+                                                onClick={() => setIsOverviewExpanded(!isOverviewExpanded)}
+                                            >
+                                                <div className="section-label">Overview</div>
+                                                {isOverviewExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                                            </button>
+                                            {isOverviewExpanded && (
+                                                <div className="section-content">
+                                                    <ReactMarkdown
+                                                        components={{
+                                                            a: ({ href, children }) => {
+                                                                if (href && href.startsWith('#citation-')) {
+                                                                    const index = parseInt(href.replace('#citation-', ''), 10);
+                                                                    const chunk = latestResult.chunks?.[index - 1];
+                                                                    if (chunk) {
+                                                                        return (
+                                                                            <button
+                                                                                className="inline-citation"
+                                                                                title={`Go to source [${index}]: ${chunk.metadata?.source_file}`}
+                                                                                onClick={(e) => {
+                                                                                    e.preventDefault();
+                                                                                    handleSourceClick(chunk);
+                                                                                }}
+                                                                            >
+                                                                                [{children}]
+                                                                            </button>
+                                                                        );
+                                                                    }
+                                                                }
+                                                                return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+                                                            }
+                                                        }}
+                                                    >
+                                                        {splitContent(latestResult.content).overview.replace(/\[(\d+)\]/g, '[$1](#citation-$1)')}
+                                                    </ReactMarkdown>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             ) : null}
