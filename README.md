@@ -130,10 +130,23 @@ sequenceDiagram
 
 ## 📂 Project Structure
 
-- `milvus_inserter.py`: Embedding and insertion logic.
-- `retriever.py`: Core RAG and LLM interaction.
-- `main.py`: FastAPI server.
-- `chunk_raw_data.py`: Preprocessing and chunking pipeline.
-- `milvus_schema.py`: Milvus collection and index definition.
-- `doc/`: Storage for source PDF files.
-- `output/`: Storage for extracted markdown files.
+```text
+game-note-ui/
+├── main.py              # FastAPI server (Chat & PDF endpoints)
+├── retriever.py         # Core RAG logic (Search + Gemini LLM)
+├── milvus_inserter.py   # Embedding generation & Milvus data insertion
+├── predict_metadata.py  # LLM-based metadata prediction for game notes
+├── chunk_raw_data.py    # Header-based & recursive character chunking
+├── milvus_schema.py     # Milvus collection & HNSW index definition
+├── requirements.txt     # Python backend dependencies
+├── .env                 # Environment configurations (API keys, Milvus URI)
+├── data/                # Final processed JSON chunks for insertion
+├── doc/                 # Source game note PDFs (organized by team)
+├── output/              # Extracted Markdown versions of game notes
+├── scripts/             # Utility and automation scripts
+│   └── dev/             # Debugging, testing, and validation scripts
+└── frontend/            # React + Vite application
+    ├── src/             # Frontend source code (Components, Hooks, App)
+    ├── index.html       # Web application entry point
+    └── vite.config.js   # Vite build & proxy configuration
+```
