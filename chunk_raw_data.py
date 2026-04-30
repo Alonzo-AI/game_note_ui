@@ -15,8 +15,10 @@ Run:
     python chunk_raw_data.py
 """
 
+import os
 import re
 import json
+import time
 from pathlib import Path
 
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
@@ -51,16 +53,16 @@ def remove_image_tags(text: str) -> str:
     return re.sub(r"!\[.*?\]\(.*?\)", "", text)
 
 
-def load_markdown_files(team_name: str) -> list[dict]:
+def load_markdown_files(team_name: str, sport_code: str) -> list[dict]:
     """
     Walk the markdown tree for both supported layouts:
-        1. output/<team_name>/<season>/<game_id>/*.md
-        2. output/<team_name>/<season>/*.md
+        1. output/<sport_code>/<team_name>/<season>/<game_id>/*.md
+        2. output/<sport_code>/<team_name>/<season>/*.md
 
     Return a list of:
         { file_path, season, game_id }
     """
-    team_path = Path(BASE_PATH) / team_name
+    team_path = Path(BASE_PATH) / sport_code / team_name
     if not team_path.exists():
         raise FileNotFoundError(f"Team folder not found: {team_path}")
 
@@ -128,12 +130,12 @@ def chunk_file(text: str) -> list:
 # Main pipeline
 # ---------------------------------------------------------------------------
 
-def process(team_name: str) -> list[dict]:
+def process(team_name: str, sport_code: str) -> list[dict]:
     """
     Full pipeline: load → predict metadata → chunk → attach metadata.
     Returns a flat list of chunk dicts ready to save.
     """
-    md_files = load_markdown_files(team_name)
+    md_files = load_markdown_files(team_name, sport_code)
     print(f"Found {len(md_files)} markdown files for '{team_name}'.")
 
     all_chunks = []
@@ -144,6 +146,7 @@ def process(team_name: str) -> list[dict]:
         game_id   = file_info["game_id"]
 
         print(f"[{i}/{len(md_files)}] {file_path}")
+        time.sleep(2)  # Delay to avoid rate limiting
 
         try:
             text = Path(file_path).read_text(encoding="utf-8", errors="ignore")
@@ -185,8 +188,11 @@ def process(team_name: str) -> list[dict]:
     return all_chunks
 
 
-def save(chunks: list[dict], team_name: str) -> None:
-    output_file = f"{team_name}_chunks_final.json"
+def save(chunks: list[dict], team_name: str, sport_code: str) -> None:
+    output_dir = Path(f"data/{sport_code}")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    output_file = output_dir / f"{team_name}_chunks_final.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(chunks, f, indent=2, ensure_ascii=False)
     print(f"\nSaved {len(chunks)} chunks → {output_file}")
@@ -197,11 +203,12 @@ def save(chunks: list[dict], team_name: str) -> None:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    team_name = "Washington St."          # ← change this to process a different team
+    team_name = "Colorado St."
+    sport_code = "WBB"       # ← change this to process a different team
 
-    chunks = process(team_name)
+    chunks = process(team_name, sport_code)
     print(f"\nTotal chunks: {len(chunks)}")
-    save(chunks, team_name)
+    save(chunks, team_name, sport_code)
 
     if chunks:
         print("\nSample chunk:")

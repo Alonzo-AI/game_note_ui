@@ -24,17 +24,20 @@ MILVUS_PORT = os.getenv("MILVUS_PORT", "19530")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME", "game_notes")
 EMBEDDING_DIM = int(os.getenv("EMBEDDING_DIM", "1024"))
 
-def connect_milvus():
-    print(f"Connecting to Milvus at {MILVUS_HOST}:{MILVUS_PORT}...")
-    connections.connect("default", host=MILVUS_HOST, port=MILVUS_PORT)
+def connect_milvus(db_name="default"):
+    # Check if a connection with this alias already exists
+    if db_name in [c[0] for c in connections.list_connections()]:
+        return
+    print(f"Connecting to Milvus at {MILVUS_HOST}:{MILVUS_PORT} (DB/Alias: {db_name})...")
+    connections.connect(alias=db_name, host=MILVUS_HOST, port=MILVUS_PORT, db_name=db_name)
 
-def create_game_notes_collection():
+def create_game_notes_collection(db_name="default"):
     """
     Creates the game_notes collection with a production-ready schema.
     """
-    if utility.has_collection(COLLECTION_NAME):
-        print(f"Collection '{COLLECTION_NAME}' already exists. Dropping for fresh setup...")
-        utility.drop_collection(COLLECTION_NAME)
+    if utility.has_collection(COLLECTION_NAME, using=db_name):
+        print(f"Collection '{COLLECTION_NAME}' already exists in DB '{db_name}'. Dropping for fresh setup...")
+        utility.drop_collection(COLLECTION_NAME, using=db_name)
 
     # 1. Define Fields
     fields = [
@@ -48,23 +51,23 @@ def create_game_notes_collection():
         FieldSchema(name="content", dtype=DataType.VARCHAR, max_length=12000),
         
         # Metadata fields (Filtering)
-        FieldSchema(name="team", dtype=DataType.VARCHAR, max_length=128),
-        FieldSchema(name="opponent_team", dtype=DataType.VARCHAR, max_length=128),
+        FieldSchema(name="team", dtype=DataType.VARCHAR, max_length=512),
+        FieldSchema(name="opponent_team", dtype=DataType.VARCHAR, max_length=512),
         FieldSchema(name="game_date", dtype=DataType.VARCHAR, max_length=32),
         FieldSchema(name="home_away", dtype=DataType.VARCHAR, max_length=32),
         FieldSchema(name="conference", dtype=DataType.VARCHAR, max_length=256),
         FieldSchema(name="season", dtype=DataType.VARCHAR, max_length=32),
-        FieldSchema(name="game_id", dtype=DataType.VARCHAR, max_length=128),
+        FieldSchema(name="game_id", dtype=DataType.VARCHAR, max_length=1024),
         FieldSchema(name="section", dtype=DataType.VARCHAR, max_length=512),
         FieldSchema(name="title", dtype=DataType.VARCHAR, max_length=1024),
-        FieldSchema(name="chunk_id", dtype=DataType.VARCHAR, max_length=128),
-        FieldSchema(name="sport_code", dtype=DataType.VARCHAR, max_length=32),
+        FieldSchema(name="chunk_id", dtype=DataType.VARCHAR, max_length=512),
+        FieldSchema(name="sport_code", dtype=DataType.VARCHAR, max_length=128),
     ]
 
     schema = CollectionSchema(fields, description="College Football Game Notes Chunks")
     
-    print(f"Creating collection '{COLLECTION_NAME}'...")
-    collection = Collection(name=COLLECTION_NAME, schema=schema)
+    print(f"Creating collection '{COLLECTION_NAME}' in DB '{db_name}'...")
+    collection = Collection(name=COLLECTION_NAME, schema=schema, using=db_name)
 
     # 2. Create Indices
     print("Creating indices...")
@@ -91,7 +94,8 @@ def create_game_notes_collection():
 
 if __name__ == "__main__":
     try:
-        connect_milvus()
-        create_game_notes_collection()
+        sport_code = "mfb" # default
+        connect_milvus(db_name=sport_code)
+        create_game_notes_collection(db_name=sport_code)
     except Exception as e:
         print(f"Failed to setup Milvus: {e}")

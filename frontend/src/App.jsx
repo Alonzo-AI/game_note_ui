@@ -9,6 +9,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 function App() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
+    const [sportCode, setSportCode] = useState('MFB');
     const [teamName, setTeamName] = useState('');
     const [opponentTeam, setOpponentTeam] = useState('');
     const [gameDate, setGameDate] = useState('');
@@ -28,11 +29,16 @@ function App() {
         const loadFilterOptions = async () => {
             setIsOptionsLoading(true);
             try {
-                const response = await axios.get(`${API_BASE_URL}/filter-options`);
+                const response = await axios.get(`${API_BASE_URL}/filter-options`, {
+                    params: { sport_code: sportCode }
+                });
                 setFilterOptions(response.data);
-                if (response.data.team_names?.length === 1) {
-                    setTeamName(response.data.team_names[0]);
+                // Reset other filters if current team is not in new list
+                if (!response.data.team_names.includes(teamName)) {
+                    setTeamName(response.data.team_names[0] || '');
                 }
+                setOpponentTeam('');
+                setGameDate('');
             } catch (error) {
                 console.error('Error loading filter options:', error);
             } finally {
@@ -41,7 +47,7 @@ function App() {
         };
 
         loadFilterOptions();
-    }, []);
+    }, [sportCode]);
 
     const handleSend = async (e) => {
         if (e) e.preventDefault();
@@ -59,6 +65,7 @@ function App() {
             const response = await axios.post(`${API_BASE_URL}/chat`, {
                 message: userQuery,
                 team_name: teamName,
+                sport_code: sportCode,
                 opponent_team: opponentTeam || null,
                 game_date: gameDate || null
             });
@@ -127,14 +134,14 @@ function App() {
             <header className="search-header">
                 <div className="logo-container">
                     <Bot size={32} color="#818cf8" />
-                    <h1>Roadrunner Search</h1>
+                    <h1>College Game Notes Search</h1>
                 </div>
                 <form className="search-input-area" onSubmit={handleSend}>
                     <div className="search-input-wrapper">
                         <Search className="search-icon" size={20} />
                         <input
                             type="text"
-                            placeholder="Ask UTSA game notes anything..."
+                            placeholder="Ask anything about the game notes..."
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             disabled={isLoading || isOptionsLoading}
@@ -148,6 +155,19 @@ function App() {
                         </button>
                     </div>
                     <div className="filter-row">
+                        <div className="filter-item sport-selector">
+                            <BookOpen size={16} />
+                            <select
+                                value={sportCode}
+                                onChange={(e) => setSportCode(e.target.value)}
+                                disabled={isLoading || isOptionsLoading}
+                                className="sport-dropdown"
+                            >
+                                <option value="MFB">MFB</option>
+                                <option value="MBB">MBB</option>
+                                <option value="WBB">WBB</option>
+                            </select>
+                        </div>
                         <div className="filter-item">
                             <BookOpen size={16} />
                             <select
@@ -206,10 +226,10 @@ function App() {
                 {!userQuery && !isLoading && (
                     <div className="empty-state">
                         <h2>Welcome to Coach's Brain</h2>
-                        <p>Search through seasons of UTSA football game notes, player stats, and historic milestones.</p>
-                        <p className="empty-state-hint">Select a team first. Opponent and game date are optional filters.</p>
+                        <p>Search through seasons of college sports game notes, player stats, and historic milestones.</p>
+                        <p className="empty-state-hint">Select a sport and team first. Opponent and game date are optional filters.</p>
                         <div className="suggested-queries">
-                            {['How did UTSA perform against Tulsa?', 'Who was the top rusher in 2024?', 'UTSA vs North Texas history'].map(q => (
+                            {['How did Victor Snow perform recently?', "Tell me about Ta'Quan Roberson's record vs UMass", 'Who wears the #41 jersey and why?', 'How many forced fumbles does Red Murdock have?'].map(q => (
                                 <button key={q} onClick={() => { setInput(q); }}>{q}</button>
                             ))}
                         </div>

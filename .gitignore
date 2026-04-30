@@ -6,3 +6,7 @@ data/
 __pycache__/
 *.log
 *.sqlite3
+test_data_mbb.txt
+data_old
+output_old
+Dockerfile

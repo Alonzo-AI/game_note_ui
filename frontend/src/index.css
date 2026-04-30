@@ -317,7 +317,10 @@ body {
 
 .answer-body h1,
 .answer-body h2,
-.answer-body h3 {
+.answer-body h3,
+.answer-body h4,
+.answer-body h5,
+.answer-body h6 {
     color: #0f172a;
     margin-top: 1.5em;
     margin-bottom: 0.75em;
@@ -350,12 +353,12 @@ body {
 }
 
 .answer-body strong {
-    color: #ffffff;
+    color: #1e3a8a; /* Dark blue for emphasis */
     font-weight: 700;
 }
 
 .answer-body em {
-    color: #a1a1aa;
+    color: #64748b; /* Better contrast gray */
 }
 
 .overview-section,

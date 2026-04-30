@@ -24,6 +24,7 @@ app.mount("/pdfs", StaticFiles(directory="doc"), name="pdfs")
 class ChatRequest(BaseModel):
     message: str
     team_name: str
+    sport_code: str
     opponent_team: Optional[str] = None
     opponent_name: Optional[str] = None
     game_date: Optional[str] = None
@@ -43,6 +44,8 @@ async def chat(request: ChatRequest):
             raise HTTPException(status_code=400, detail="message is required")
         if not team_name:
             raise HTTPException(status_code=400, detail="team_name is required")
+        if not request.sport_code:
+            raise HTTPException(status_code=400, detail="sport_code is required")
 
         filters = {"team": team_name}
         opponent_value = request.opponent_name or request.opponent_team
@@ -51,7 +54,7 @@ async def chat(request: ChatRequest):
         if request.game_date:
             filters["game_date"] = request.game_date
             
-        result = get_answer(query_text, filters=filters)
+        result = get_answer(query_text, sport_code=request.sport_code, filters=filters)
         print("render prompt",result["prompt"])
         return ChatResponse(reply=result["answer"], chunks=result["chunks"])
     except Exception as e:
@@ -60,9 +63,9 @@ async def chat(request: ChatRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/filter-options")
-async def filter_options():
+async def filter_options(sport_code: str = "mfb"):
     try:
-        return get_filter_options()
+        return get_filter_options(sport_code=sport_code)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

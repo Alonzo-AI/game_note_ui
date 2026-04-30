@@ -31,7 +31,7 @@ from google.genai import types
 load_dotenv()
 
 _API_KEY   = os.getenv("GOOGLE_API_KEY")
-_MODEL     = "gemini-2.0-flash"
+_MODEL     = "gemini-3-flash-preview"
 _client    = genai.Client(api_key=_API_KEY) if _API_KEY else None
 
 def _build_system_prompt(team_name: str) -> str:
@@ -91,38 +91,48 @@ def predict_game_metadata(text: str, team_name: str = "", season: str = "") -> d
         f"---\n{text[:3000].strip()}\n---"
     )
 
-    try:
-        response = _client.models.generate_content(
-            model=_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=_build_system_prompt(team_name),
-                temperature=0.0,
-                response_mime_type="application/json",
-            ),
-        )
+    import time
+    max_retries = 3
+    retry_delay = 5  # seconds
 
-        raw = response.text.strip()
-        # Strip any accidental markdown fences
-        raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.MULTILINE)
+    for attempt in range(max_retries):
+        try:
+            response = _client.models.generate_content(
+                model=_MODEL,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    system_instruction=_build_system_prompt(team_name),
+                    temperature=0.0,
+                    response_mime_type="application/json",
+                ),
+            )
 
-        parsed = json.loads(raw)
+            raw = response.text.strip()
+            # Strip any accidental markdown fences
+            raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.MULTILINE)
 
-        # Validate home_away value
-        home_away = parsed.get("home_away", "Home")
-        if home_away not in ("Home", "Away"):
-            home_away = "Home"
+            parsed = json.loads(raw)
 
-        return {
-            "opponent_team": parsed.get("opponent_team") or fallback["opponent_team"],
-            "game_date":     parsed.get("game_date")     or fallback["game_date"],
-            "home_away":     home_away,
-            "conference":    parsed.get("conference")    or fallback["conference"],
-        }
+            # Validate home_away value
+            home_away = parsed.get("home_away", "Home")
+            if home_away not in ("Home", "Away"):
+                home_away = "Home"
 
-    except json.JSONDecodeError as exc:
-        print(f"  [predict_metadata] JSON parse error: {exc}  raw={raw!r}")
-    except Exception as exc:
-        print(f"  [predict_metadata] LLM call failed: {exc}")
+            return {
+                "opponent_team": parsed.get("opponent_team") or fallback["opponent_team"],
+                "game_date":     parsed.get("game_date")     or fallback["game_date"],
+                "home_away":     home_away,
+                "conference":    parsed.get("conference")    or fallback["conference"],
+            }
+
+        except Exception as exc:
+            if "429" in str(exc) or "RESOURCE_EXHAUSTED" in str(exc):
+                if attempt < max_retries - 1:
+                    print(f"  [predict_metadata] Rate limit hit (429). Retrying in {retry_delay}s... (Attempt {attempt+1}/{max_retries})")
+                    time.sleep(retry_delay)
+                    retry_delay *= 2  # Exponential backoff
+                    continue
+            print(f"  [predict_metadata] LLM call failed: {exc}")
+            break
 
     return fallback

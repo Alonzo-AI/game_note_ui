@@ -1,5 +1,7 @@
 from sentence_transformers import SentenceTransformer
 from google import genai
+import time
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from dotenv import load_dotenv
 import os
 from pymilvus import Collection
@@ -11,7 +13,7 @@ load_dotenv()
 # Config
 COLLECTION_NAME = os.getenv("COLLECTION_NAME", "game_notes")
 EMBED_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-large-en-v1.5")
-LLM_MODEL = os.getenv("LLM_MODEL", "gemini-2.0-flash")
+LLM_MODEL = os.getenv("MODEL_NAME", "gemini-2.0-flash")
 SEARCH_LIMIT = int(os.getenv("SEARCH_LIMIT", "5"))
 FILTER_OPTIONS_LIMIT = int(os.getenv("FILTER_OPTIONS_LIMIT", "10000"))
 HEAD_TO_HEAD_SEARCH_LIMIT = int(os.getenv("HEAD_TO_HEAD_SEARCH_LIMIT", "12"))
@@ -26,9 +28,17 @@ print("Loading embedding model...")
 embed_model = SentenceTransformer(EMBED_MODEL)
 
 print("Connecting to Milvus...")
-connect_milvus()
-collection = Collection(name=COLLECTION_NAME)
-collection.load()
+# connect_milvus() is now called dynamically in get_collection
+
+def get_collection(sport_code: str):
+    """
+    Connect to the appropriate Milvus database and return the collection.
+    """
+    sport_code = sport_code.lower()
+    connect_milvus(db_name=sport_code)
+    coll = Collection(name=COLLECTION_NAME, using=sport_code)
+    coll.load()
+    return coll
 
 OUTPUT_FIELDS = [
     "content",
@@ -65,7 +75,8 @@ def _build_filter_expr(filters: dict | None) -> str | None:
     return " and ".join(clauses) if clauses else None
 
 
-def get_filter_options():
+def get_filter_options(sport_code: str = "mfb"):
+    collection = get_collection(sport_code)
     rows = collection.query(
         expr="id >= 0",
         output_fields=["team", "opponent_team", "game_date"],
@@ -94,7 +105,8 @@ def get_filter_options():
         "game_dates": game_dates,
     }
 
-def get_answer(query: str, filters: dict = None):
+def get_answer(query: str, sport_code: str = "mfb", filters: dict = None):
+    collection = get_collection(sport_code)
 
     # Embed query
     query_embedding = embed_model.encode(
@@ -107,17 +119,25 @@ def get_answer(query: str, filters: dict = None):
     opponent_filter = (filters or {}).get("opponent_team")
     search_limit = HEAD_TO_HEAD_SEARCH_LIMIT if opponent_filter else SEARCH_LIMIT
 
-    results = collection.search(
-        data=query_embedding.tolist(),
-        anns_field="vector",
-        param={
-            "metric_type": "COSINE",
-            "params": {"ef": 128},
-        },
-        limit=search_limit,
-        expr=filter_expr,
-        output_fields=OUTPUT_FIELDS
-    )
+    print(f"Searching Milvus with expr: {filter_expr} (limit={search_limit})...")
+    try:
+        results = collection.search(
+            data=query_embedding.tolist(),
+            anns_field="vector",
+            param={
+                "metric_type": "COSINE",
+                "params": {"ef": 128},
+            },
+            limit=search_limit,
+            expr=filter_expr,
+            output_fields=OUTPUT_FIELDS
+        )
+        print(f"Milvus search successful. Hits: {len(results[0]) if results else 0}")
+    except Exception as e:
+        print(f"Milvus search failed: {e}")
+        import traceback
+        traceback.print_exc()
+        raise e
 
     # Combine documents with their source metadata for context
     context_parts = []
@@ -173,7 +193,7 @@ def get_answer(query: str, filters: dict = None):
     """
 
     prompt = f"""
-    You are a sports analyst assistant specializing in UTSA football history and statistics.
+    You are a sports analyst assistant specializing in college sports history and statistics.
 
     Your goal is to extract the most impressive "nostalgia" information and milestones from the context provided. 
 
@@ -196,11 +216,27 @@ def get_answer(query: str, filters: dict = None):
     """
 
 
-    # Call Gemini
-    response = gemini_client.models.generate_content(
-        model=LLM_MODEL,
-        contents=prompt
+    # Call Gemini with retry logic
+    @retry(
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=1, min=4, max=60),
+        retry=retry_if_exception_type(Exception) # Catch general exceptions for retry
     )
+    def generate_with_retry():
+        print(f"Calling Gemini with model {LLM_MODEL}...")
+        return gemini_client.models.generate_content(
+            model=LLM_MODEL,
+            contents=prompt
+        )
+
+    try:
+        response = generate_with_retry()
+        print("Gemini call successful.")
+    except Exception as e:
+        print(f"Gemini API call failed after retries: {e}")
+        import traceback
+        traceback.print_exc()
+        raise e
     
     return {
         "answer": response.text,
