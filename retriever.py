@@ -75,10 +75,20 @@ def _build_filter_expr(filters: dict | None) -> str | None:
     return " and ".join(clauses) if clauses else None
 
 
-def get_filter_options(sport_code: str = "mfb"):
+def get_filter_options(sport_code: str = "mfb", team_name: str = None, opponent_team: str = None):
     collection = get_collection(sport_code)
+    
+    filters = {}
+    if team_name:
+        filters["team"] = team_name
+    if opponent_team:
+        filters["opponent_team"] = opponent_team
+        
+    expr = _build_filter_expr(filters) or "id >= 0"
+
+    print(f"Fetching filter options for {sport_code} with expr: {expr}")
     rows = collection.query(
-        expr="id >= 0",
+        expr=expr,
         output_fields=["team", "opponent_team", "game_date"],
         limit=FILTER_OPTIONS_LIMIT,
     )
@@ -185,11 +195,18 @@ def get_answer(query: str, sport_code: str = "mfb", filters: dict = None):
     context = "\n\n".join(context_parts)
 
     team_filter = (filters or {}).get("team")
+    game_date_filter = (filters or {}).get("game_date")
     scope_instruction = ""
+    
     if opponent_filter and team_filter:
-        scope_instruction = f"""
+        scope_instruction += f"""
     7. HEAD-TO-HEAD ONLY: The selected teams are "{team_filter}" and "{opponent_filter}". In "### Game by Game Notes", include ONLY games where these two teams played each other in the past. Do not add broader season summaries, unrelated opponents, or general achievements outside those meetings.
     8. IF EVIDENCE IS LIMITED: If the context only contains a few meetings, only summarize those meetings and say that the answer is limited to the retrieved head-to-head notes.
+    """
+    
+    if game_date_filter:
+        scope_instruction += f"""
+    9. DATE SPECIFIC: The user is interested in the game on {game_date_filter}. Focus your answer primarily on the performance and events of this specific day. In "### Game by Game Notes", ONLY include sub-sections for the game(s) occurring on {game_date_filter}. If the context contains statistical comparisons to other dates (e.g., "Season Highs" from other games), you may mention them briefly if they highlight the excellence of the current game, but do NOT create separate 'Buffalo vs X' subsections for those other dates.
     """
 
     prompt = f"""

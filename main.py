@@ -63,9 +63,17 @@ async def chat(request: ChatRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/filter-options")
-async def filter_options(sport_code: str = "mfb"):
+async def filter_options(
+    sport_code: str = "mfb", 
+    team_name: Optional[str] = None, 
+    opponent_team: Optional[str] = None
+):
     try:
-        return get_filter_options(sport_code=sport_code)
+        return get_filter_options(
+            sport_code=sport_code, 
+            team_name=team_name, 
+            opponent_team=opponent_team
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

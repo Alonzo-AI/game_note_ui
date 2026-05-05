@@ -25,29 +25,61 @@ function App() {
     const [isOverviewExpanded, setIsOverviewExpanded] = useState(true);
     const resultsEndRef = useRef(null);
 
+    // Handle cascading filters
     useEffect(() => {
         const loadFilterOptions = async () => {
-            setIsOptionsLoading(true);
+            // Only set options loading on sport change to avoid disabling everything during narrow-down
+            const isSportChange = !filterOptions.team_names.length;
+            if (isSportChange) setIsOptionsLoading(true);
+            
             try {
-                const response = await axios.get(`${API_BASE_URL}/filter-options`, {
-                    params: { sport_code: sportCode }
-                });
-                setFilterOptions(response.data);
-                // Reset other filters if current team is not in new list
-                if (!response.data.team_names.includes(teamName)) {
-                    setTeamName(response.data.team_names[0] || '');
+                const params = { sport_code: sportCode };
+                if (teamName) params.team_name = teamName;
+                if (opponentTeam) params.opponent_team = opponentTeam;
+
+                const response = await axios.get(`${API_BASE_URL}/filter-options`, { params });
+                
+                setFilterOptions(prev => ({
+                    // Keep teams for the sport even when filtering opponents/dates
+                    team_names: teamName ? prev.team_names : response.data.team_names,
+                    // Keep opponents for the team even when filtering dates
+                    opponent_team_names: opponentTeam ? prev.opponent_team_names : response.data.opponent_team_names,
+                    game_dates: response.data.game_dates
+                }));
+
+                // Auto-select first team on sport change if none selected
+                if (!teamName && response.data.team_names.length > 0) {
+                    setTeamName(response.data.team_names[0]);
                 }
-                setOpponentTeam('');
-                setGameDate('');
             } catch (error) {
                 console.error('Error loading filter options:', error);
             } finally {
-                setIsOptionsLoading(false);
+                if (isSportChange) setIsOptionsLoading(false);
             }
         };
 
         loadFilterOptions();
-    }, [sportCode]);
+    }, [sportCode, teamName, opponentTeam]);
+
+    // Handle selections and resets
+    const handleSportChange = (newSport) => {
+        setSportCode(newSport);
+        setTeamName('');
+        setOpponentTeam('');
+        setGameDate('');
+        setFilterOptions({ team_names: [], opponent_team_names: [], game_dates: [] });
+    };
+
+    const handleTeamChange = (newTeam) => {
+        setTeamName(newTeam);
+        setOpponentTeam('');
+        setGameDate('');
+    };
+
+    const handleOpponentChange = (newOpponent) => {
+        setOpponentTeam(newOpponent);
+        setGameDate('');
+    };
 
     const handleSend = async (e) => {
         if (e) e.preventDefault();
@@ -159,7 +191,7 @@ function App() {
                             <BookOpen size={16} />
                             <select
                                 value={sportCode}
-                                onChange={(e) => setSportCode(e.target.value)}
+                                onChange={(e) => handleSportChange(e.target.value)}
                                 disabled={isLoading || isOptionsLoading}
                                 className="sport-dropdown"
                             >
@@ -172,7 +204,7 @@ function App() {
                             <BookOpen size={16} />
                             <select
                                 value={teamName}
-                                onChange={(e) => setTeamName(e.target.value)}
+                                onChange={(e) => handleTeamChange(e.target.value)}
                                 disabled={isLoading || isOptionsLoading}
                                 required
                             >
@@ -186,7 +218,7 @@ function App() {
                             <Users size={16} />
                             <select
                                 value={opponentTeam}
-                                onChange={(e) => setOpponentTeam(e.target.value)}
+                                onChange={(e) => handleOpponentChange(e.target.value)}
                                 disabled={isLoading || isOptionsLoading}
                             >
                                 <option value="">{isOptionsLoading ? 'Loading opponents...' : 'All opponents'}</option>
