@@ -10,3 +10,20 @@ test_data_mbb.txt
 data_old
 output_old
 Dockerfile
+
+# Local Python virtual environments
+.venv/
+venv/
+
+# Lambda/deploy build artifacts
+.build/
+*.zip
+
+# Python cache/artifacts
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS/editor noise
+.DS_Store

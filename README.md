@@ -150,3 +150,109 @@ game-note-ui/
     ├── index.html       # Web application entry point
     └── vite.config.js   # Vite build & proxy configuration
 ```
+
+---
+
+## 🚀 Deploy MCP Server to AWS Lambda
+
+This repo includes a deploy script for the MCP server in `mcp_server.py`.
+
+### Files used for Lambda MCP
+
+- `mcp_server.py`: MCP tools (`get_filter_options`, `search_game_notes`, `get_pdf_info`)
+- `lambda_mcp_handler.py`: Lambda entrypoint for FastMCP
+- `requirements.lambda.txt`: minimal dependencies for Lambda package
+- `scripts/deploy_mcp_lambda.sh`: one-command deploy/update script
+
+### Prerequisites
+
+- AWS CLI configured with profile `alonzo-deploy`
+- A Lambda execution role ARN (first deploy only), for example:
+  - `arn:aws:iam::845810202069:role/Bulk_load_Lambda1`
+- Python interpreter `>= 3.10` (3.12 recommended)
+
+> You can use your current shell python as long as it is compatible:
+>
+> `PYTHON_BIN="$(which python)"`
+
+### First-time deploy (create Lambda if missing)
+
+From repo root:
+
+```bash
+LAMBDA_ROLE_ARN=arn:aws:iam::845810202069:role/Bulk_load_Lambda1 \
+PYTHON_BIN="$(which python)" \
+./scripts/deploy_mcp_lambda.sh game-note-mcp-lambda us-east-2
+```
+
+### Subsequent deployments (same Lambda)
+
+Whenever MCP/project code changes:
+
+```bash
+PYTHON_BIN="$(which python)" \
+./scripts/deploy_mcp_lambda.sh game-note-mcp-lambda us-east-2
+```
+
+### Create/verify Function URL
+
+```bash
+aws lambda create-function-url-config \
+  --function-name game-note-mcp-lambda \
+  --auth-type NONE \
+  --region us-east-2 \
+  --profile alonzo-deploy 2>/dev/null || true
+
+aws lambda add-permission \
+  --function-name game-note-mcp-lambda \
+  --statement-id AllowPublicFunctionUrlInvoke \
+  --action lambda:InvokeFunctionUrl \
+  --principal "*" \
+  --function-url-auth-type NONE \
+  --region us-east-2 \
+  --profile alonzo-deploy 2>/dev/null || true
+
+aws lambda add-permission \
+  --function-name game-note-mcp-lambda \
+  --statement-id AllowPublicInvokeViaFunctionUrl \
+  --action lambda:InvokeFunction \
+  --principal "*" \
+  --invoked-via-function-url \
+  --region us-east-2 \
+  --profile alonzo-deploy 2>/dev/null || true
+```
+
+Get URL:
+
+```bash
+aws lambda get-function-url-config \
+  --function-name game-note-mcp-lambda \
+  --region us-east-2 \
+  --profile alonzo-deploy \
+  --query FunctionUrl \
+  --output text
+```
+
+### Cursor MCP configuration
+
+Use `streamable_http` with the `/mcp` path:
+
+```json
+{
+  "mcpServers": {
+    "game-note-mcp": {
+      "transport": "streamable_http",
+      "url": "https://uctwkbjxbjjdncwpn2x2j2awwm0fvvzs.lambda-url.us-east-2.on.aws/mcp"
+    }
+  }
+}
+```
+
+### Troubleshooting
+
+- `No matching distribution found for mcp`:
+  - your Python is too old (<3.10). Use a newer interpreter in `PYTHON_BIN`.
+- `Session not found`:
+  - fixed by running FastMCP in stateless HTTP mode for Lambda.
+- `Invalid Host header` (421):
+  - transport security host validation mismatch. Current setup disables DNS rebinding protection by default in Lambda.
