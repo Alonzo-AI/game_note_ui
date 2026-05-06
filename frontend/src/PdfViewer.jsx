@@ -6,6 +6,8 @@ import 'react-pdf/dist/Page/TextLayer.css';
 // Set up PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@5.4.296/build/pdf.worker.min.mjs`;
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const PdfViewer = ({ pdfUrl, totalPages, selectedPage, highlightText }) => {
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(selectedPage || 1);
@@ -18,7 +20,7 @@ const PdfViewer = ({ pdfUrl, totalPages, selectedPage, highlightText }) => {
     // Cache buster only for the initial load of a new URL
     const stablePdfUrl = useMemo(() => {
         if (!pdfUrl) return null;
-        return `http://localhost:8003${pdfUrl}`;
+        return `${API_BASE_URL}${pdfUrl}`;
     }, [pdfUrl]);
 
     useEffect(() => {

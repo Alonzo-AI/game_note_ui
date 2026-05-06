@@ -1,10 +1,11 @@
+from typing import List, Optional, Any
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
 import pypdfium2 as pdfium
-from retriever import get_answer
+from retriever import get_answer, get_filter_options
 
 app = FastAPI()
 
@@ -22,8 +23,13 @@ app.mount("/pdfs", StaticFiles(directory="doc"), name="pdfs")
 
 class ChatRequest(BaseModel):
     message: str
+    team_name: str
+    sport_code: str
+    opponent_team: Optional[str] = None
+    opponent_name: Optional[str] = None
+    game_date: Optional[str] = None
 
-from typing import List, Any
+
 
 class ChatResponse(BaseModel):
     reply: str
@@ -32,9 +38,42 @@ class ChatResponse(BaseModel):
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     try:
-        result = get_answer(request.message)
+        query_text = request.message.strip()
+        team_name = request.team_name.strip()
+        if not query_text:
+            raise HTTPException(status_code=400, detail="message is required")
+        if not team_name:
+            raise HTTPException(status_code=400, detail="team_name is required")
+        if not request.sport_code:
+            raise HTTPException(status_code=400, detail="sport_code is required")
+
+        filters = {"team": team_name}
+        opponent_value = request.opponent_name or request.opponent_team
+        if opponent_value:
+            filters["opponent_team"] = opponent_value
+        if request.game_date:
+            filters["game_date"] = request.game_date
+            
+        result = get_answer(query_text, sport_code=request.sport_code, filters=filters)
         print("render prompt",result["prompt"])
         return ChatResponse(reply=result["answer"], chunks=result["chunks"])
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise e
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/filter-options")
+async def filter_options(
+    sport_code: str = "mfb", 
+    team_name: Optional[str] = None, 
+    opponent_team: Optional[str] = None
+):
+    try:
+        return get_filter_options(
+            sport_code=sport_code, 
+            team_name=team_name, 
+            opponent_team=opponent_team
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -64,4 +103,4 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8003)
+    uvicorn.run(app, host="0.0.0.0", port=8506)
