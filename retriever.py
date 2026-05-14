@@ -109,10 +109,22 @@ def get_filter_options(sport_code: str = "mfb", team_name: str = None, opponent_
         if (row.get("game_date") or "").strip()
     })
 
+    # Extract unique month-day values from game_dates (assuming YYYY-MM-DD or MM-DD-YYYY format)
+    # We look for something like XX-XX or -XX-XX
+    month_days = set()
+    for gd in game_dates:
+        # Match YYYY-MM-DD format
+        parts = gd.split('-')
+        if len(parts) == 3: # YYYY-MM-DD
+            month_days.add(f"{parts[1]}-{parts[2]}")
+        elif len(parts) == 2: # already MM-DD
+            month_days.add(gd)
+    
     return {
         "team_names": teams,
         "opponent_team_names": opponents,
         "game_dates": game_dates,
+        "month_days": sorted(list(month_days)),
     }
 
 def get_answer(query: str, sport_code: str = "mfb", filters: dict = None):
@@ -124,7 +136,30 @@ def get_answer(query: str, sport_code: str = "mfb", filters: dict = None):
         normalize_embeddings=True
     )
 
-    filter_expr = _build_filter_expr(filters)
+    # Handle month_day filter by finding all matching game_dates
+    month_day_filter = (filters or {}).get("month_day")
+    if month_day_filter and not filters.get("game_date"):
+        # We need to find all game_dates that end with this month_day
+        # To do this efficiently without regex (if possible), we can fetch all game_dates for the team first
+        # or use a regex expr if Milvus supports it. 
+        # Safer approach: find available game_dates matching this month_day
+        all_options = get_filter_options(sport_code=sport_code, team_name=filters.get("team"))
+        matching_dates = [d for d in all_options["game_dates"] if d.endswith(month_day_filter)]
+        
+        # Remove month_day from filters to avoid it being used in _build_filter_expr
+        actual_filters = filters.copy()
+        actual_filters.pop("month_day", None)
+        
+        filter_expr = _build_filter_expr(actual_filters)
+        if matching_dates:
+            date_expr = f'game_date in {matching_dates}'
+            filter_expr = f"({filter_expr}) and {date_expr}" if filter_expr else date_expr
+    else:
+        # Standard filter building
+        # Ensure month_day doesn't break generic builder if it's still there
+        standard_filters = filters.copy() if filters else {}
+        standard_filters.pop("month_day", None)
+        filter_expr = _build_filter_expr(standard_filters)
 
     opponent_filter = (filters or {}).get("opponent_team")
     search_limit = HEAD_TO_HEAD_SEARCH_LIMIT if opponent_filter else SEARCH_LIMIT
