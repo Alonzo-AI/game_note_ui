@@ -13,12 +13,14 @@ function App() {
     const [teamName, setTeamName] = useState('');
     const [opponentTeam, setOpponentTeam] = useState('');
     const [gameDate, setGameDate] = useState('');
+    const [monthDay, setMonthDay] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isOptionsLoading, setIsOptionsLoading] = useState(true);
     const [filterOptions, setFilterOptions] = useState({
         team_names: [],
         opponent_team_names: [],
-        game_dates: []
+        game_dates: [],
+        month_days: []
     });
     const [pdfViewerData, setPdfViewerData] = useState(null);
     const [isGameNotesExpanded, setIsGameNotesExpanded] = useState(true);
@@ -44,7 +46,8 @@ function App() {
                     team_names: teamName ? prev.team_names : response.data.team_names,
                     // Keep opponents for the team even when filtering dates
                     opponent_team_names: opponentTeam ? prev.opponent_team_names : response.data.opponent_team_names,
-                    game_dates: response.data.game_dates
+                    game_dates: response.data.game_dates,
+                    month_days: response.data.month_days
                 }));
 
                 // Auto-select first team on sport change if none selected
@@ -67,18 +70,31 @@ function App() {
         setTeamName('');
         setOpponentTeam('');
         setGameDate('');
-        setFilterOptions({ team_names: [], opponent_team_names: [], game_dates: [] });
+        setMonthDay('');
+        setFilterOptions({ team_names: [], opponent_team_names: [], game_dates: [], month_days: [] });
     };
 
     const handleTeamChange = (newTeam) => {
         setTeamName(newTeam);
         setOpponentTeam('');
         setGameDate('');
+        setMonthDay('');
     };
 
     const handleOpponentChange = (newOpponent) => {
         setOpponentTeam(newOpponent);
         setGameDate('');
+        setMonthDay('');
+    };
+
+    const handleGameDateChange = (newDate) => {
+        setGameDate(newDate);
+        if (newDate) setMonthDay('');
+    };
+
+    const handleMonthDayChange = (newMonthDay) => {
+        setMonthDay(newMonthDay);
+        if (newMonthDay) setGameDate('');
     };
 
     const handleSend = async (e) => {
@@ -99,7 +115,8 @@ function App() {
                 team_name: teamName,
                 sport_code: sportCode,
                 opponent_team: opponentTeam || null,
-                game_date: gameDate || null
+                game_date: gameDate || null,
+                month_day: monthDay || null
             });
             const { reply, chunks } = response.data;
             setMessages(prev => [...prev, {
@@ -236,7 +253,7 @@ function App() {
                             <Calendar size={16} />
                             <select
                                 value={gameDate}
-                                onChange={(e) => setGameDate(e.target.value)}
+                                onChange={(e) => handleGameDateChange(e.target.value)}
                                 disabled={isLoading || isOptionsLoading}
                             >
                                 <option value="">{isOptionsLoading ? 'Loading dates...' : 'All game dates'}</option>
@@ -246,6 +263,24 @@ function App() {
                             </select>
                             {gameDate && (
                                 <button type="button" className="clear-filter" onClick={() => setGameDate('')}>
+                                    <X size={14} />
+                                </button>
+                            )}
+                        </div>
+                        <div className="filter-item" style={{ borderLeft: '1px solid var(--border)' }}>
+                            <Calendar size={16} />
+                            <select
+                                value={monthDay}
+                                onChange={(e) => handleMonthDayChange(e.target.value)}
+                                disabled={isLoading || isOptionsLoading}
+                            >
+                                <option value="">{isOptionsLoading ? 'Loading...' : 'All seasons for Month-Day'}</option>
+                                {filterOptions.month_days.map((md) => (
+                                    <option key={md} value={md}>{md}</option>
+                                ))}
+                            </select>
+                            {monthDay && (
+                                <button type="button" className="clear-filter" onClick={() => setMonthDay('')}>
                                     <X size={14} />
                                 </button>
                             )}
@@ -304,6 +339,24 @@ function App() {
                                                                         const index = parseInt(href.replace('#citation-', ''), 10);
                                                                         const chunk = latestResult.chunks?.[index - 1];
                                                                         if (chunk) {
+                                                                            const title = chunk.metadata?.title || '';
+                                                                            const recapSourceMatch = title.match(/Recap Source:\s*(https?:\/\/\S+)/i);
+                                                                            const recapUrl = recapSourceMatch ? recapSourceMatch[1] : null;
+
+                                                                            if (recapUrl) {
+                                                                                return (
+                                                                                    <a 
+                                                                                        href={recapUrl} 
+                                                                                        target="_blank" 
+                                                                                        rel="noopener noreferrer"
+                                                                                        className="inline-citation recap-citation"
+                                                                                        title={`Go to recap source: ${recapUrl}`}
+                                                                                    >
+                                                                                        [{children}]
+                                                                                    </a>
+                                                                                );
+                                                                            }
+
                                                                             return (
                                                                                 <button
                                                                                     className="inline-citation"
@@ -338,32 +391,50 @@ function App() {
                                                 {isOverviewExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                                             </button>
                                             {isOverviewExpanded && (
-                                                <div className="section-content">
-                                                    <ReactMarkdown
-                                                        components={{
-                                                            a: ({ href, children }) => {
-                                                                if (href && href.startsWith('#citation-')) {
-                                                                    const index = parseInt(href.replace('#citation-', ''), 10);
-                                                                    const chunk = latestResult.chunks?.[index - 1];
-                                                                    if (chunk) {
-                                                                        return (
-                                                                            <button
-                                                                                className="inline-citation"
-                                                                                title={`Go to source [${index}]: ${chunk.metadata?.source_file}`}
-                                                                                onClick={(e) => {
-                                                                                    e.preventDefault();
-                                                                                    handleSourceClick(chunk);
-                                                                                }}
-                                                                            >
-                                                                                [{children}]
-                                                                            </button>
-                                                                        );
-                                                                    }
-                                                                }
-                                                                return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+                                    <div className="section-content">
+                                        <ReactMarkdown
+                                            components={{
+                                                a: ({ href, children }) => {
+                                                    if (href && href.startsWith('#citation-')) {
+                                                        const index = parseInt(href.replace('#citation-', ''), 10);
+                                                        const chunk = latestResult.chunks?.[index - 1];
+                                                        if (chunk) {
+                                                            const title = chunk.metadata?.title || '';
+                                                            const recapSourceMatch = title.match(/Recap Source:\s*(https?:\/\/\S+)/i);
+                                                            const recapUrl = recapSourceMatch ? recapSourceMatch[1] : null;
+
+                                                            if (recapUrl) {
+                                                                return (
+                                                                    <a 
+                                                                        href={recapUrl} 
+                                                                        target="_blank" 
+                                                                        rel="noopener noreferrer"
+                                                                        className="inline-citation recap-citation"
+                                                                        title={`Go to recap source: ${recapUrl}`}
+                                                                    >
+                                                                        [{children}]
+                                                                    </a>
+                                                                );
                                                             }
-                                                        }}
-                                                    >
+
+                                                            return (
+                                                                <button
+                                                                    className="inline-citation"
+                                                                    title={`Go to source [${index}]: ${chunk.metadata?.source_file}`}
+                                                                    onClick={(e) => {
+                                                                        e.preventDefault();
+                                                                        handleSourceClick(chunk);
+                                                                    }}
+                                                                >
+                                                                    [{children}]
+                                                                </button>
+                                                            );
+                                                        }
+                                                    }
+                                                    return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+                                                }
+                                            }}
+                                        >
                                                         {splitContent(latestResult.content).overview.replace(/\[(\d+)\]/g, '[$1](#citation-$1)')}
                                                     </ReactMarkdown>
                                                 </div>
@@ -383,27 +454,48 @@ function App() {
                                 {isLoading ? (
                                     [1, 2, 3].map(i => <div key={i} className="shimmer source-shimmer"></div>)
                                 ) : latestResult?.chunks ? (
-                                    latestResult.chunks.map((chunk, idx) => (
-                                        <div
-                                            key={idx}
-                                            className="source-card"
-                                            onClick={() => handleSourceClick(chunk)}
-                                            style={{ cursor: 'pointer' }}
-                                        >
-                                            <div className="source-meta" style={{ alignItems: 'flex-start' }}>
-                                                <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                                                    <span className="source-index-badge">{idx + 1}</span>
-                                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                                                        <span className="source-tag">{chunk.metadata?.source_file || 'Game Note'}</span>
-                                                        <span className="view-pdf-btn">
-                                                            <ExternalLink size={12} /> View PDF
-                                                        </span>
+                                    latestResult.chunks.map((chunk, idx) => {
+                                        const title = chunk.metadata?.title || '';
+                                        const recapSourceMatch = title.match(/Recap Source:\s*(https?:\/\/\S+)/i);
+                                        const recapUrl = recapSourceMatch ? recapSourceMatch[1] : null;
+
+                                        return (
+                                            <div
+                                                key={idx}
+                                                className="source-card"
+                                                onClick={() => handleSourceClick(chunk)}
+                                                style={{ cursor: 'pointer' }}
+                                            >
+                                                <div className="source-meta" style={{ alignItems: 'flex-start' }}>
+                                                    <div style={{ display: 'flex', gap: '12px', alignItems: 'center', width: '100%' }}>
+                                                        <span className="source-index-badge">{idx + 1}</span>
+                                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1 }}>
+                                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                                <span className="source-tag">{chunk.metadata?.source_file || 'Game Note'}</span>
+                                                                {recapUrl && (
+                                                                    <a 
+                                                                        href={recapUrl} 
+                                                                        target="_blank" 
+                                                                        rel="noopener noreferrer"
+                                                                        className="recap-link"
+                                                                        onClick={(e) => e.stopPropagation()}
+                                                                        title="Go to Recap Source"
+                                                                        style={{ color: '#818cf8', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', fontWeight: 500 }}
+                                                                    >
+                                                                        <ExternalLink size={12} /> Recap
+                                                                    </a>
+                                                                )}
+                                                            </div>
+                                                            <span className="view-pdf-btn">
+                                                                <ExternalLink size={12} /> View PDF
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <p className="source-snippet">{chunk.content}</p>
                                             </div>
-                                            <p className="source-snippet">{chunk.content}</p>
-                                        </div>
-                                    ))
+                                        );
+                                    })
                                 ) : (
                                     <p className="no-sources">Retrieve data to see sources here.</p>
                                 )}

@@ -78,6 +78,7 @@ def build_mcp() -> FastMCP:
         team_name: str,
         opponent_team: str | None = None,
         game_date: str | None = None,
+        month_day: str | None = None,
     ):
         """
         Search game notes and get an AI-generated answer based on the provided query and filters.
@@ -88,6 +89,7 @@ def build_mcp() -> FastMCP:
             team_name: The team name to focus on.
             opponent_team: Optional opponent team name to filter by.
             game_date: Optional specific game date (YYYY-MM-DD) to filter by.
+            month_day: Optional month-day (MM-DD) to search across all seasons.
         """
         async with httpx.AsyncClient() as client:
             payload = {
@@ -96,6 +98,7 @@ def build_mcp() -> FastMCP:
                 "team_name": team_name,
                 "opponent_team": opponent_team,
                 "game_date": game_date,
+                "month_day": month_day,
             }
             try:
                 response = await client.post(f"{BASE_URL}/chat", json=payload, timeout=60.0)

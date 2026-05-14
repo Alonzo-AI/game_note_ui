@@ -28,6 +28,7 @@ class ChatRequest(BaseModel):
     opponent_team: Optional[str] = None
     opponent_name: Optional[str] = None
     game_date: Optional[str] = None
+    month_day: Optional[str] = None
 
 
 
@@ -53,6 +54,8 @@ async def chat(request: ChatRequest):
             filters["opponent_team"] = opponent_value
         if request.game_date:
             filters["game_date"] = request.game_date
+        if request.month_day:
+            filters["month_day"] = request.month_day
             
         result = get_answer(query_text, sport_code=request.sport_code, filters=filters)
         print("render prompt",result["prompt"])
